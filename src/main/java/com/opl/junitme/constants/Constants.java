@@ -34,7 +34,8 @@ public interface Constants {
 		/**
 		 * Source of the program.
 		 */
-		public static final String SRC_PRG = "src/main/resources/res";
+		public static final String SRC_PRG = "../tullibee-code/tullibee-api/src/main/java";
+		//public static final String SRC_PRG = "src/main/resources/res";
 
 		/**
 		 * The number of instance to run with alloy.

@@ -315,16 +315,16 @@ public class JUnitTestClassGenerator {
 		if (genType != null) {
 			switch (genType) {
 			case BOOLEAN:
-				jvar = methodBody.decl(this.codeModel._ref(boolean.class), varName).init(JExpr.lit(r.nextBoolean()));
+				jvar = methodBody.decl(this.codeModel._ref(boolean.class), varName).init(JExpr.lit(false));
 				break;
 			case DOUBLE:
-				jvar = methodBody.decl(this.codeModel._ref(double.class), varName).init(JExpr.lit(r.nextDouble()));
+				jvar = methodBody.decl(this.codeModel._ref(double.class), varName).init(JExpr.lit(2));
 				break;
 			case FLOAT:
-				jvar = methodBody.decl(this.codeModel._ref(float.class), varName).init(JExpr.lit(r.nextFloat()));
+				jvar = methodBody.decl(this.codeModel._ref(float.class), varName).init(JExpr.lit(5.0));
 				break;
 			case INTEGER:
-				jvar = methodBody.decl(this.codeModel._ref(int.class), varName).init(JExpr.lit(r.nextInt()));
+				jvar = methodBody.decl(this.codeModel._ref(int.class), varName).init(JExpr.lit(0));
 				break;
 			case STRING:
 				jvar = methodBody.decl(this.codeModel.ref(String.class), varName).init(JExpr.lit("stringTest"));

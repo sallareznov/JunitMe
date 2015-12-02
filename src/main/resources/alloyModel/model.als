@@ -83,13 +83,16 @@ pred validParam[method : Method, call : MethodCall]{
 
 
 
---------Generic Types------------
+-------- Primitive Types ------------
 
-one sig Gen_String extends Type{}
+one sig Gen_Double extends Type{}
 one sig Gen_Integer extends Type{}
 one sig Gen_Float extends Type{}
 one sig Gen_Boolean extends Type{}
-
+one sig Gen_Byte extends Type{}
+one sig Gen_Character extends Type{}
+one sig Gen_Long extends Type{}
+one sig Gen_Short extends Type{}
 
 --------generated----------------
 

@@ -36,7 +36,7 @@ public class Main {
 		AlloyGenerator.genAlloy(srcProgram, nbRun);
 
 		// Parse alloy model to JAVA model
-		new AlloyToJavaParser(Configuration.DST_GEN_MODEL).parse(true, true,
+		new AlloyToJavaParser(Configuration.DST_GEN_MODEL).parse(false, true,
 				nbTest);
 
 		// Generate unit test

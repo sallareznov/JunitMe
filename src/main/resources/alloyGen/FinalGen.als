@@ -195,4 +195,4 @@ one sig java_lang_String_array extends Type{}
 one sig java_lang_Object extends Type{}
 one sig Stock extends Type{}
 
-run {} for 4
+run {} for 8

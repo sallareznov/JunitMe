@@ -1,8 +1,22 @@
 \chapter*{Introduction}
 	\thispagestyle{introduction}
 	\addcontentsline{toc}{chapter}{Introduction}
-		Contexte \\
-		Problème \\
-		Objectif \\
-		Solution \\
-		Évaluation
+	"Every program is guilty until proven innocent"
+	
+	During the development phase, developers spend lots of time to write tests corresponding to code they have written in the program.
+	
+	A program with high code coverage has been more thoroughly tested and has a lower chance of containing software bugs than a program with low code coverage.\cite{CodeCoverage}
+	
+	But what if developers didn't have to spends hours writing tests to have a good code coverage? what if there was a magic stick that can generate a bunch of unit tests? 
+	
+We have decided to find an answer to previously asked questions. And since Java is one of the most used programming languages in the world, we have decided to find a solution that would generate automatically Java unit tests. Thats would save the time of developers and would give the time and the energy to focus on working on business layer.
+
+To realise this project we have used Spoon, Alloy , Alloy Analyzer and CodeModel.
+
+This project is an extended version of an application developed by Valentin Lefils and Quentin Marrecau. The first version of the application has treated the same problems we are facing but only on small example of Java programs.
+
+The rest of this report is organized as follows. Section~\ref{sec:Goal} provides motivating examples and the goals of this work.
+Section~\ref{sec:Overview} describes an overview of our tool: JUnitMe.
+Section~\ref{sec:Algorithm} describes the algorithms. Section~\ref{sec:Implementation} explains the implementation and the architecture, section~\ref{sec:Utilisation} provides an example of a use case and expected results.
+Section~\ref{sec:Complexity} evaluates our tool from a complexity point of view. Section~\ref{sec:Performance} evaluates our tool from a performance point of view. Section~\ref{sec:Ease} evaluates the ease of use of our tool.
+Finally, Section~\hyperref[ch:Conclusion]{3}. concludes this report.

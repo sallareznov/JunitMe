@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!--
+  Copyright 2010-2012 Christopher Redekop
+
+  This file is part of the Tullibee Resource Adapter.  The Tullibee Resource
+  Adapter provides connectivity to Interactive Brokers through the Tullibee
+  API, in accordance with the Java EE Connector Architecture.
+ 
+  The Tullibee Resource Adapter is free software: you can redistribute it
+  and/or modify it under the terms of the GNU Lesser General Public License as
+  published by the Free Software Foundation, either version 3 of the License,
+  or (at your option) any later version.
+ 
+  The Tullibee Resource Adapter is distributed in the hope that it will be
+  useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser
+  General Public License for more details.
+ 
+  You should have received a copy of the GNU Lesser General Public License
+  along with the Tullibee Resource Adapter.  If not, see
+  <http://www.gnu.org/licenses/>.
+  -->
+  <parent>
+    <groupId>net.sf.tullibee</groupId>
+    <artifactId>tullibee-ra</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>tullibee-ra-rar</artifactId>
+  <packaging>rar</packaging>
+  <name>Tullibee Resource-Adapter Archive</name>
+  <description>The Tullibee Resource-Adapter Archive packages the Tullibee Reource Adapter into a standard RAR archive that can be deployed to a Java EE container.</description>
+  <url>http://tullibee.sf.net/site/tullibee-resource-adapter/tullibee-rar</url>
+  <licenses>
+    <license>
+      <name>GNU Lesser General Public License</name>
+      <url>http://www.gnu.org/licenses/lgpl-3.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <issueManagement>
+    <system>Sourceforge Tracker</system>
+    <url>http://sf.net/projects/tullibee</url>
+  </issueManagement>
+  <developers>
+    <developer>
+      <id>credekop</id>
+      <name>Christopher Redekop</name>
+      <email>waveform@users.sourceforge.net</email>
+      <roles>
+        <role>Lead Developer</role>
+      </roles>
+      <timezone>-3</timezone>
+    </developer>
+  </developers>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jboss.ironjacamar</groupId>
+        <artifactId>ironjacamar-validator-maven</artifactId>
+        <configuration>
+          <outputDir>${project.build.directory}</outputDir>
+          <rarFile>${project.build.directory}/${project.build.finalName}</rarFile>
+        </configuration>
+        <executions>
+          <execution>
+            <id>validate</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>validate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>net.sf.tullibee</groupId>
+      <artifactId>tullibee-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.tullibee</groupId>
+      <artifactId>tullibee-ra-cci</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.tullibee</groupId>
+      <artifactId>tullibee-ra-spi</artifactId>
+    </dependency>
+  </dependencies>
+  <scm>
+    <connection>scm:svn:https://tullibee.svn.sourceforge.net/svnroot/tullibee/trunk/tullibee-ra/tullibee-ra-rar</connection>
+    <developerConnection>scm:svn:https://tullibee.svn.sourceforge.net/svnroot/tullibee/trunk/tullibee-ra/tullibee-ra-rar</developerConnection>
+    <url>http://tullibee.svn.sourceforge.net/viewvc/tullibee/trunk/tullibee-ra/tullibee-ra-rar</url>
+  </scm>
+  <distributionManagement>
+    <site>
+      <id>tullibee.sf.net</id>
+      <url>scp://shell.sourceforge.net/home/groups/t/tu/tullibee/htdocs/site/tullibee-resource-adapter/tullibee-rar</url>
+    </site>
+  </distributionManagement>
+</project>

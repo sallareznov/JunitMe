@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<ironjacamar>
+  <config-property name="serverName">localhost</config-property>
+  <config-property name="portNumber">4001</config-property>
+  <transaction-support>NoTransaction</transaction-support>
+  <connection-definitions>
+    <connection-definition class-name="net.sf.tullibee.resource.ManagedConnectionFactoryImpl" enabled="true" jndi-name="java:/eis/tullibee-ra" pool-name="tullibee-ra" use-ccm="true" use-java-context="true">
+      <pool>
+        <min-pool-size>0</min-pool-size>
+        <max-pool-size>8</max-pool-size>
+        <prefill>false</prefill>
+        <use-strict-min>false</use-strict-min>
+        <flush-strategy>FailingConnectionOnly</flush-strategy>
+      </pool>
+      <security>
+        <application/>
+      </security>
+    </connection-definition>
+  </connection-definitions>
+</ironjacamar>

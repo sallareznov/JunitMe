@@ -1,0 +1,9 @@
+<project>
+  <publishDate format="MM/dd/yyyy HH:mm Z" />
+
+  <body>
+    <menu ref="modules" />
+    <menu ref="reports" />
+  </body>
+</project>
+

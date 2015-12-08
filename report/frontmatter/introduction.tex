@@ -11,14 +11,10 @@
 	
 Since Java is one of the most used programming languages in the world, we have decided to find a solution that would generate automatically Java unit tests. That would save time for developers, and would give the time and the energy to focus on working on business layer.
 
-To realise this project we have used Spoon, Alloy, Alloy Analyzer and CodeModel.
- 
- Explication techno
- 
- Solution
-
 This project is an extended version of an application developed by Valentin Lefils and Quentin Marrecau \cite{JUnitMeRapport} \cite{JUnitMeGitHub} . The first version of the application has treated the same problems we are facing, but only on small example of Java programs.
 
+In this project, we present our tool: JUnitMe2.0. Our tool can generate automatically Java unit tests for any Java open source application. From a description of specification, our tool generate all instances that covere the data specifications, then generate the unit tests corresponding to these instances.
+  
 The rest of this report is organized as follows : Section~\ref{sec:Goal} provides motivating examples and the goals of this work.
 Section~\ref{sec:Overview} describes an overview of our tool: JUnitMe.
 Section~\ref{sec:Algorithm} describes the algorithms. Section~\ref{sec:Implementation} explains the implementation and the architecture, section~\ref{sec:Utilisation} provides an example of a use case and expected results.

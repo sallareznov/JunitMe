@@ -1,3 +1,148 @@
 \section{Implementation \& architecture}
 \label{sec:Implementation}
- using \textbf{Spoon} Java library to analyze and trasform source code, \textbf{Alloy} a language and tool for relational models, \textbf{Alloy Analyzer} a solver that takes the constraints of a model and finds structures that satisfy them and \textbf{CodeModel} a Java library for code generators.
+\subsection{Technologies}
+In order to realise our project we have used four different techonogies: Spoon, Alloy, Alloy Analyzer and CodeModel.
+
+\subsubsection{Spoon}
+In order to analyze and transform source code, we needed an efficient and powerful library.
+We have chosen Spoon, a high-quality open-source library created and maintained by INRIA
+(French Institute for Research in Computer Science and Automation (French: Institut national
+de recherche en informatique et en automatique)). Providing a complete and fine-grained
+JAVA metamodel, Spoon enables us to perform effortless treatments in differents parts of code.
+These treatments are performed by processors, which are able to browse, modify, or even add
+any program element (class, method, field, statements, expressions...).\cite{spoon-gforge}\cite{spoon-hal}
+Spoon can also be used on validation purpose, to ensure that your programs respect some
+programming conventions or guidelines, or for program transformation, by using a pure-JAVA
+template engine.\cite{spoon-javasource}
+\subsubsection{Alloy}
+Alloy is a language for describing structures and a tool for exploring them. It has been used in a wide range of applications from finding holes in security mechanisms to designing telephone switching networks.
+An Alloy model is a collection of constraints that describes (implicitly) a set of structures, for example: all the possible security configurations of a web application, or all the possible topologies of a switching network.\cite{alloy}
+
+\subsubsection{Alloy Analyzer}
+Alloy Analyzer, is a solver that takes the constraints of a model and finds structures that satisfy them. It can be used both to explore the model by generating sample structures, and to check properties of the model by generating counterexamples.\cite{alloy}
+
+\subsubsection{CodeModel}
+CodeModel is a Java library for code generators; it provides a way to generate Java programs in a way much nicer than PrintStream.println().
+With CodeModel, we can build the java source code by first building AST, then writing it out as text files that is Java source files.\cite{codeModel}
+
+\subsection{Implementation}
+The main parts of our project is generating Alloy source code from a given Java program, then generating Alloy instances. Thereafter modelizing these instances in Java to, finally, convert these modelized instances to Java unit tests.
+
+\subsubsection{Generating Alloy source code}
+\paragraph{Base model}
+The base model is a meta-model, It is the base of the generated java to Alloy program.
+It is composed of three parts: Types, methods, methods constraints and arguments of these methods.
+\paragraph{Types}
+\lstset{language=Alloy} 
+\begin{lstlisting}[frame=single]
+abstract sig Type{
+}
+
+sig Object{
+    type : Type
+}
+
+\end{lstlisting}
+
+\paragraph{Methods}
+\lstset{language=Alloy} 
+\begin{lstlisting}[frame=single]
+abstract sig CallWithNext extends Call{
+    nextMethod : Call
+}
+
+sig MethodCall extends CallWithNext{
+    receiver : Object,
+    method : Method,
+    params : seq Object
+}
+
+one sig Begin extends CallWithNext{
+}
+
+abstract sig Method {
+    paramTypes : seq Type,
+    receiverType : Type
+}
+
+\end{lstlisting}
+
+\paragraph{Methods constraints}
+\lstset{language=Alloy} 
+\begin{lstlisting}[frame=single]
+
+------ Method Constraints-------
+
+
+-- There must be one and only one method.next= end
+fact{
+    one m : MethodCall | m.nextMethod in End
+}
+
+-- Method call cant link to itself 
+fact{
+    all mc : MethodCall | mc.nextMethod!=mc
+}
+
+-- The receiver has the right type
+fact{
+    all mc : MethodCall |  mc.receiver.type=mc.method.receiverType
+}
+
+-- A call can't be done twice
+fact{
+all mc: MethodCall | no mc2 : MethodCall |  (mc2 in mc.^nextMethod) && (mc2.nextMethod=mc)
+}
+
+-- All methodCall Has been called
+fact{
+    all mc : MethodCall | one c : CallWithNext | c.nextMethod=mc
+}
+
+-- Object calling a method has the right type
+fact{
+    all mc:MethodCall | mc.receiver.type=mc.method.receiverType
+}
+
+
+\end{lstlisting}
+\paragraph{Methods arguments}
+\lstset{language=Alloy} 
+\begin{lstlisting}[frame=single]
+
+------- Param Constraints ------
+
+
+-- Types verification (method declaration/method calling)
+fact{
+    all mc : MethodCall |validParam[mc.method,mc]
+}
+
+pred validParam[method : Method, call : MethodCall]{
+	call.params.type=method.paramTypes
+	#call.params=#method.paramTypes
+     all  pt : method.paramTypes.elems | all p : call.params.elems | call.params.idxOf[p]=method.paramTypes.idxOf[pt] implies pt=p.type
+}
+
+
+
+-------- Primitive Types ------------
+
+one sig Gen_Double extends Type{}
+one sig Gen_Integer extends Type{}
+one sig Gen_Float extends Type{}
+one sig Gen_Boolean extends Type{}
+one sig Gen_Byte extends Type{}
+one sig Gen_Character extends Type{}
+one sig Gen_Long extends Type{}
+one sig Gen_Short extends Type{}
+
+\end{lstlisting} 
+
+
+
+\paragraph{Code generation}
+To generate Alloy instances for an existing Java program we used Spoon. Spoon uses AST (Abstract syntax tree)\cite{ast} to browse the structure of a specified program. With informations collected in the AST, we are able to generate the code of Alloy program corresponding to the initial Java program. The generated code is then grafted to the base model which allows us to ******.
+
+\subsubsection{Generating Java unit tests}
+After having Alloy source code for a given Java program,*****

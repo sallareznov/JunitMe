@@ -1,6 +1,6 @@
 \section{Algorithm}
 \label{sec:Algorithm}
-\subsection{Alloy to Java}
+\subsection{Java to Alloy}
 \subsubsection{Generating Alloy source code}
 \paragraph{Base model}
 The base model is a meta-model, It is the base of the generated java to Alloy program.
@@ -11,7 +11,7 @@ It is composed of four parts: Types, methods, methods constraints and arguments 
 To generate Alloy instances for an existing Java program we used Spoon. Spoon uses AST (Abstract syntax tree)\cite{ast} to browse the structure of a specified program. With informations collected in the AST, we are able to generate the code of Alloy program corresponding to the initial Java program. The generated code is then grafted to the base model.
 Result is a complet Alloy model inside the file FinalGen.als
 
-\subsection{Java to Alloy}
+\subsection{Alloy to Java}
 \subsubsection{Generating Java unit tests}
 \paragraph{Modelizing Alloy instances in Java}
 Using Alloy Analyzer we execute the generated Alloy source code. Alloy Analyzer generates all possible instances.

@@ -2,7 +2,13 @@ abstract sig Type{
 }
 
 sig Object{
-    type : Type
+    type : Type,
+    constructor : ConstructorCall
+}
+
+sig ConstructorCall{
+    method: Method,
+    params: seq Object
 }
 
 abstract sig Call{
@@ -78,10 +84,8 @@ fact{
 pred validParam[method : Method, call : MethodCall]{
 	call.params.type=method.paramTypes
 	#call.params=#method.paramTypes
-     all  pt : method.paramTypes.elems | all p : call.params.elems | call.params.idxOf[p]=method.paramTypes.idxOf[pt] implies pt=p.type
+    all  pt : method.paramTypes.elems | all p : call.params.elems | call.params.idxOf[p]=method.paramTypes.idxOf[pt] implies pt=p.type
 }
-
-
 
 -------- Primitive Types ------------
 
@@ -93,6 +97,3 @@ one sig Gen_Byte extends Type{}
 one sig Gen_Character extends Type{}
 one sig Gen_Long extends Type{}
 one sig Gen_Short extends Type{}
-
---------generated----------------
-

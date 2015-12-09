@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.opl.junitme.alloy.model.AConstructorCall;
 import com.opl.junitme.alloy.model.AMethod;
 import com.opl.junitme.alloy.model.AMethodCall;
 import com.opl.junitme.alloy.model.AModel;
@@ -77,6 +78,9 @@ public class AlloyInstance {
 				case TYPE:
 					instance = new AType(elementId);
 					break;
+				case CONSTRUCTOR_CALL:
+					instance = new AConstructorCall(elementId);
+					break;
 				default:
 					break;
 				}
@@ -125,6 +129,21 @@ public class AlloyInstance {
 			}
 		}
 		return methodCallList;
+	}
+	
+	public List<AConstructorCall> getConstructorCalls() {
+		final List<AConstructorCall> constructorCallList = new LinkedList<AConstructorCall>();
+		if (this.createdObjects != null && !this.createdObjects.isEmpty()) {
+			Set<Entry<String, AModel>> createdInstanceEntrySet = this.createdObjects
+					.entrySet();
+			for (Entry<String, AModel> createdInstanceEntry : createdInstanceEntrySet) {
+				AModel value = createdInstanceEntry.getValue();
+				if (value instanceof AConstructorCall) {
+					constructorCallList.add((AConstructorCall) value);
+				}
+			}
+		}
+		return constructorCallList;
 	}
 
 	/**

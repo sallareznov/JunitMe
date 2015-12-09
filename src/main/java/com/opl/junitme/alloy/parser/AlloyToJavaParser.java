@@ -65,7 +65,11 @@ public class AlloyToJavaParser {
 
 		int count = 0;
 		while (solution.satisfiable() && (count < max || max == -1)) {
-			System.out.println("Creating instance n_" + (++count) + (max != -1 ? " of " + max : ""));
+			if (count % 1000 == 0) {
+				System.out.println("Creating instance n_" + (count + 1) + (max != -1 ? " of " + max : ""));
+			}
+			
+			count++;
 
 			// Prepare the string buffer.
 			StringBuilder sb = new StringBuilder();

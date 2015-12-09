@@ -2,13 +2,22 @@ package com.opl.junitme.constants;
 
 public enum AGenType {
 
-	INTEGER("Gen_Integer"), STRING("Gen_String"), BOOLEAN("Gen_Boolean"), FLOAT("Gen_Float"), DOUBLE("Gen_Double");
+	INTEGER("Gen_Integer"),
+	STRING("Gen_String"),
+	BOOLEAN("Gen_Boolean"),
+	FLOAT("Gen_Float"),
+	DOUBLE("Gen_Double"),
+	BYTE("Gen_Byte"),
+	LONG("Gen_Long"),
+	SHORT("Gen_Short");
 
 	private String value;
 
 	/**
 	 * Constructor.
-	 * @param value the value of the enum.
+	 * 
+	 * @param value
+	 *            the value of the enum.
 	 */
 	private AGenType(final String value) {
 		this.value = value;
@@ -16,7 +25,9 @@ public enum AGenType {
 
 	/**
 	 * Get the enum from the given value.
-	 * @param value the value to get enum with.
+	 * 
+	 * @param value
+	 *            the value to get enum with.
 	 * @return the AModelEnum corresponding to the value.
 	 */
 	public static AGenType getEnumFromValue(final String value) {
@@ -30,6 +41,7 @@ public enum AGenType {
 
 	/**
 	 * Get the value.
+	 * 
 	 * @return the value.
 	 */
 	private String getValue() {

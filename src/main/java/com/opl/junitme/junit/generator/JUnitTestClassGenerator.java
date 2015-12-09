@@ -6,13 +6,14 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
+import com.opl.junitme.alloy.model.AConstructorCall;
 import com.opl.junitme.alloy.model.AMethodCall;
 import com.opl.junitme.alloy.model.AObject;
 import com.opl.junitme.constants.AGenType;
 import com.opl.junitme.constants.Constants;
 import com.sun.codemodel.JBlock;
+import com.sun.codemodel.JCatchBlock;
 import com.sun.codemodel.JClass;
 import com.sun.codemodel.JClassAlreadyExistsException;
 import com.sun.codemodel.JCodeModel;
@@ -21,6 +22,7 @@ import com.sun.codemodel.JExpr;
 import com.sun.codemodel.JInvocation;
 import com.sun.codemodel.JMethod;
 import com.sun.codemodel.JMod;
+import com.sun.codemodel.JTryBlock;
 import com.sun.codemodel.JVar;
 
 /**
@@ -144,9 +146,12 @@ public class JUnitTestClassGenerator {
 	 * 
 	 * @param methodCall
 	 *            the method call object containing methods to call.
+	 * @throws ClassNotFoundException
 	 */
-	public void createTestMethod(final AMethodCall methodCall) {
-		this.createTestMethod(this.methodNamePrefix + this.methodList.size() + this.methodNameSuffix, methodCall);
+	public void createTestMethod(final AMethodCall methodCall, List<AConstructorCall> constructorsCalls)
+			throws ClassNotFoundException {
+		this.createTestMethod(this.methodNamePrefix + this.methodList.size() + this.methodNameSuffix, methodCall,
+				constructorsCalls);
 	}
 
 	/**
@@ -156,8 +161,10 @@ public class JUnitTestClassGenerator {
 	 *            the name of the test method to create.
 	 * @param methodCall
 	 *            the method call object containing methods to call.
+	 * @throws ClassNotFoundException
 	 */
-	public void createTestMethod(final String name, final AMethodCall methodCall) {
+	public void createTestMethod(final String name, final AMethodCall methodCall,
+			List<AConstructorCall> constructorsCalls) throws ClassNotFoundException {
 
 		if (methodCall != null && methodCall.isBeginner()) {
 
@@ -167,8 +174,11 @@ public class JUnitTestClassGenerator {
 			JBlock methodBody = method.body();
 			this.methodList.add(method);
 
+			JTryBlock tryBlock = methodBody._try();
+			// tryBlock._catch(exception)
+
 			// Declare all needed variables
-			Map<String, JVar> jvarByIName = this.declareVariables(methodCall, methodBody);
+			Map<String, JVar> jvarByIName = this.declareVariables(methodCall, tryBlock.body(), constructorsCalls);
 
 			// Generate method calls between variables
 			AMethodCall currentMethodCall = methodCall;
@@ -192,10 +202,12 @@ public class JUnitTestClassGenerator {
 				}
 
 				// Add the method invocation to the body
-				methodBody.add(methodInvocation);
+				tryBlock.body().add(methodInvocation);
 
 			}
-
+			final JClass exceptionClass = codeModel.directClass("java.lang.Exception");
+			final JCatchBlock catchBlock = tryBlock._catch(exceptionClass);
+			System.out.println(Class.forName(catchBlock.param("_x").type().binaryName()));
 		}
 	}
 
@@ -237,8 +249,8 @@ public class JUnitTestClassGenerator {
 	 *            the method call containing the variables to declare.
 	 * @return all variables according instances names.
 	 */
-	public Map<String, JVar> declareVariables(final AMethodCall methodCall, final JBlock methodBody) {
-
+	public Map<String, JVar> declareVariables(final AMethodCall methodCall, final JBlock methodBody,
+			List<AConstructorCall> constructorsCalls) {
 		Map<String, JVar> jvarByIName = new HashMap<String, JVar>();
 
 		AMethodCall currentMethodCall = methodCall;
@@ -248,7 +260,7 @@ public class JUnitTestClassGenerator {
 			AObject receiver = currentMethodCall.getReceiver();
 			String receiverIName = receiver.getInstanceName();
 			if (!jvarByIName.containsKey(receiverIName)) {
-				JVar jvar = this.createVariable(receiver, methodBody);
+				JVar jvar = this.createVariable(receiver, methodBody, constructorsCalls);
 				jvarByIName.put(receiverIName, jvar);
 			}
 
@@ -258,7 +270,7 @@ public class JUnitTestClassGenerator {
 				for (AObject param : params) {
 					String paramInstanceName = param.getInstanceName();
 					if (!jvarByIName.containsKey(paramInstanceName)) {
-						JVar jvar = this.createVariable(param, methodBody);
+						JVar jvar = this.createVariable(param, methodBody, constructorsCalls);
 						jvarByIName.put(paramInstanceName, jvar);
 					}
 				}
@@ -276,7 +288,8 @@ public class JUnitTestClassGenerator {
 	 *            the method body.
 	 * @return the created variable.
 	 */
-	public JVar createVariable(final AObject aobject, final JBlock methodBody) {
+	public JVar createVariable(final AObject aobject, final JBlock methodBody,
+			List<AConstructorCall> constructorsCalls) {
 		JVar jvar = null;
 		if ((jvar = createPrimitiveType(aobject, methodBody)) == null) {
 			String qClassName = aobject.getQualifiedName();
@@ -285,7 +298,48 @@ public class JUnitTestClassGenerator {
 			JClass jclass = this.getJClass(qClassName);
 			String varName = (className + "_" + aobject.getId()).toLowerCase();
 			jvar = methodBody.decl(jclass, varName);
-			jvar.init(JExpr._new(jclass));
+			final JInvocation newClass = JExpr._new(jclass);
+			for (final AConstructorCall call : constructorsCalls) {
+				if (call.getInstanceName().startsWith(aobject.getSimpleName() + "_init")) {
+					for (final AObject param : call.getParams()) {
+						String type = param.getType().getInstanceName().split("\\$")[0];
+						if (type.equals("java_lang_String")) {
+							newClass.arg(JExpr.lit("blabla"));
+						} else {
+							AGenType genType = AGenType.getEnumFromValue(type);
+							switch (genType) {
+							case BOOLEAN:
+								newClass.arg(JExpr.lit(false));
+								break;
+							case DOUBLE:
+								newClass.arg(JExpr.lit(0));
+								break;
+							case FLOAT:
+								newClass.arg(JExpr.lit(0));
+								break;
+							case INTEGER:
+								newClass.arg(JExpr.lit(0));
+								break;
+							case STRING:
+								newClass.arg(JExpr.lit("blabla"));
+								break;
+							case LONG:
+								newClass.arg(JExpr.lit(0));
+								break;
+							case SHORT:
+								newClass.arg(JExpr.lit(0));
+								break;
+							case BYTE:
+								newClass.arg(JExpr.lit(0));
+								break;
+							default:
+								break;
+							}
+						}
+					}
+				}
+			}
+			jvar.init(newClass);
 
 		}
 		return jvar;
@@ -305,8 +359,6 @@ public class JUnitTestClassGenerator {
 		String type = instanceName.split("\\$")[0];
 		System.out.println(type);
 		AGenType genType = AGenType.getEnumFromValue(type);
-
-		Random r = new Random();
 
 		JVar jvar = null;
 		String className = aobject.getSimpleName();
@@ -328,6 +380,15 @@ public class JUnitTestClassGenerator {
 				break;
 			case STRING:
 				jvar = methodBody.decl(this.codeModel.ref(String.class), varName).init(JExpr.lit("stringTest"));
+				break;
+			case LONG:
+				jvar = methodBody.decl(this.codeModel._ref(long.class), varName).init(JExpr.lit(0));
+				break;
+			case SHORT:
+				jvar = methodBody.decl(this.codeModel._ref(short.class), varName).init(JExpr.lit(0));
+				break;
+			case BYTE:
+				jvar = methodBody.decl(this.codeModel._ref(byte.class), varName).init(JExpr.lit(0));
 				break;
 			default:
 				break;

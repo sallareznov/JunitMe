@@ -47,7 +47,7 @@ public class AlloyGenerator {
 			scanner.useDelimiter("\n");
 
 			while (scanner.hasNext()) {
-				buff += scanner.next();
+				buff += scanner.next()+"\n";
 			}
 			scanner.close();
 

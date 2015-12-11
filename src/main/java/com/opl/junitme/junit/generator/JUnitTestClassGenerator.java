@@ -207,6 +207,8 @@ public class JUnitTestClassGenerator {
 			}
 			final JClass exceptionClass = codeModel.directClass("java.lang.Exception");
 			final JCatchBlock catchBlock = tryBlock._catch(exceptionClass);
+			catchBlock.body().directStatement("ExceptionInfosBuilder.printInfos(_x);");
+			catchBlock.body()._throw(JExpr.direct("_x"));
 			System.out.println(Class.forName(catchBlock.param("_x").type().binaryName()));
 		}
 	}

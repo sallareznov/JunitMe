@@ -1,28 +1,4 @@
 \section{Algorithm}
 \label{sec:Algorithm}
-\subsection{Java to Alloy}
-\subsubsection{Generating Alloy source code}
-\paragraph{Base model}
-The base model is a meta-model, It is the base of the generated java to Alloy program.
-It is composed of four parts: Types, methods, methods constraints and arguments of these methods.
-
-
-\paragraph{Code generation}
-To generate Alloy instances for an existing Java program we used Spoon. Spoon uses AST (Abstract syntax tree)\cite{ast} to browse the structure of a specified program. With informations collected in the AST, we are able to generate the code of Alloy program corresponding to the initial Java program. The generated code is then grafted to the base model.
-Result is a complet Alloy model inside the file FinalGen.als
-
-\subsection{Alloy to Java}
-\subsubsection{Generating Java unit tests}
-\paragraph{Modelizing Alloy instances in Java}
-Using Alloy Analyzer we execute the generated Alloy source code. Alloy Analyzer generates all possible instances.
-Each instance is a solution, we can obtain a solution using A4Solution object. A4Solution object has a method \textit{satisfiable} to check if the solution is valid and a method \textit{next} to go the next possible solution.
-
-\paragraph{Creating Java object}
-Each alloy instance is represented by a Java object called: \textit{AlloyInstance}.***************
-
-\paragraph{Generating tests}
-In order To generate the code of Java unit tests we used CodeModel, which allows us to generate Java classes in a simple way.\\
-We browse Java modelized solution and we generate the variables used to call methods and the variables passed as methods parameters.\\
-For each solution we use the execution trace.
-Firstly, we initalize all the necessary types for the receiver method, then all the veriables that will be used in parameters.
-
+\input{mainmatter/technical_work/algo/J2A}
+\input{mainmatter/technical_work/algo/A2J}

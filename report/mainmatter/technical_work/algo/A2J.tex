@@ -1,0 +1,14 @@
+\subsection{Alloy to Java}
+\subsubsection{Generating Java unit tests}
+\paragraph{Modelizing Alloy instances in Java}
+Using Alloy Analyzer we execute the generated Alloy source code. Alloy Analyzer generates all possible instances.
+Each instance is a solution, we can obtain a solution using A4Solution object. A4Solution object has a method \textit{satisfiable} to check if the solution is valid and a method \textit{next} to go the next possible solution.
+
+\paragraph{Creating Java object}
+Each alloy instance is represented by a Java object called: \textit{AlloyInstance}.***************
+
+\paragraph{Generating tests}
+In order To generate the code of Java unit tests we used CodeModel, which allows us to generate Java classes in a simple way.\\
+We browse Java modelized solution and we generate the variables used to call methods and the variables passed as methods parameters.\\
+For each solution we use the execution trace.
+Firstly, we initalize all the necessary types for the receiver method, then all the veriables that will be used in parameters.

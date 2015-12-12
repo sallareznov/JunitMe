@@ -1,0 +1,112 @@
+\subsection{Java to Alloy}
+\subsubsection{Generating Alloy source code}
+\paragraph{Base model}
+The base model is a meta-model, It is the base of the generated java to Alloy program.
+It is composed of four parts: Types, methods, methods constraints and methods arguments.
+\lstset{language=Alloy} 
+\subparagraph{Types} All types have a super-type: \textit{Type}. In addition, every object has a type.
+\begin{lstlisting}
+abstract sig Type{
+}
+
+sig Object{
+    type : Type,
+    constructor : ConstructorCall
+}
+\end{lstlisting}
+\subparagraph{Methods} A very important thing in order  to simulate an execution trace, is to have the trace of execution with successive methods calls and not only instances of objects of simple type declaration. Successive methods calls can be presented in a linked list, so later on, simply by getting the head of the list we can browse a gernerated instance and we will have an access to method calls. The following Alloy code represent how we represented methods in Alloy model.
+
+\begin{lstlisting}
+sig ConstructorCall{
+    method: Method,
+    params: seq Object
+}
+
+abstract sig Call{
+}
+
+one sig End extends Call{
+}
+
+abstract sig CallWithNext extends Call{
+    nextMethod : Call
+}
+
+sig MethodCall extends CallWithNext{
+    receiver : Object,
+    method : Method,
+    params : seq Object
+}
+
+one sig Begin extends CallWithNext{
+}
+
+abstract sig Method {
+    paramTypes : seq Type,
+    receiverType : Type
+}
+\end{lstlisting}
+\subparagraph{Constraints} Methods in every instance generated later on should respect couple of constraints, such like a method can call itself. the following Alloy code represent the constraints used to generate Alloy model. 
+\begin{lstlisting}
+------ Method Constraints-------
+
+-- There should be one and only method.next= end
+fact{
+    one m : MethodCall | m.nextMethod in End
+}
+
+-- Method call can't be linked to itself
+fact{
+    all mc : MethodCall | mc.nextMethod!=mc
+}
+
+-- Reciever has the right type
+fact{
+    all mc : MethodCall |  mc.receiver.type=mc.method.receiverType
+}
+
+-- Call can't be done twice
+fact{
+all mc: MethodCall | no mc2 : MethodCall |  (mc2 in mc.^nextMethod) && (mc2.nextMethod=mc)
+}
+
+-- All methods calls has been called
+fact{
+    all mc : MethodCall | one c : CallWithNext | c.nextMethod=mc
+}
+
+-- Object which calls a method has the right type
+fact{
+    all mc:MethodCall | mc.receiver.type=mc.method.receiverType
+}
+\end{lstlisting}
+\subparagraph{Arguments} Primitve types has been inculded in the base model. All other used types in a given program are generated in runtime. 
+\begin{lstlisting}
+------- Param Constraints ------
+
+-- Types verification 
+fact{
+    all mc : MethodCall |validParam[mc.method,mc]
+}
+
+pred validParam[method : Method, call : MethodCall]{
+	call.params.type=method.paramTypes
+	#call.params=#method.paramTypes
+    all  pt : method.paramTypes.elems | all p : call.params.elems | call.params.idxOf[p]=method.paramTypes.idxOf[pt] implies pt=p.type
+}
+
+-------- Primitive Types ------------
+
+one sig Gen_Double extends Type{}
+one sig Gen_Integer extends Type{}
+one sig Gen_Float extends Type{}
+one sig Gen_Boolean extends Type{}
+one sig Gen_Byte extends Type{}
+one sig Gen_Character extends Type{}
+one sig Gen_Long extends Type{}
+one sig Gen_Short extends Type{}
+\end{lstlisting}
+
+\paragraph{Code generation}
+To generate Alloy instances for an existing Java program we used Spoon. Spoon uses AST (Abstract syntax tree)\cite{ast} to browse the structure of a specified program. With informations collected in the AST, we are able to generate the code of Alloy program corresponding to the initial Java program. The generated code is then grafted to the base model.
+Result is a complet Alloy model inside the file FinalGen.als

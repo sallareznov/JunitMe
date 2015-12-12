@@ -12,6 +12,7 @@ import spoon.reflect.declaration.CtClass;
 import spoon.reflect.declaration.CtConstructor;
 import spoon.reflect.declaration.CtMethod;
 import spoon.reflect.declaration.CtParameter;
+import spoon.reflect.declaration.ModifierKind;
 
 public class AlloyProcessor extends AbstractProcessor<CtClass<?>> {
 
@@ -25,7 +26,7 @@ public class AlloyProcessor extends AbstractProcessor<CtClass<?>> {
 
 	@Override
 	public boolean isToBeProcessed(CtClass<?> candidate) {
-		return candidate.isTopLevel();
+		return candidate.isTopLevel() && !candidate.isInterface() && !candidate.hasModifier(ModifierKind.ABSTRACT);
 	}
 
 	@Override

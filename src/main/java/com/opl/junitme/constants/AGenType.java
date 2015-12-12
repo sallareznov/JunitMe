@@ -9,6 +9,7 @@ public enum AGenType {
 	DOUBLE("Gen_Double"),
 	BYTE("Gen_Byte"),
 	LONG("Gen_Long"),
+	CHARACTER("Gen_Character"),
 	SHORT("Gen_Short");
 
 	private String value;

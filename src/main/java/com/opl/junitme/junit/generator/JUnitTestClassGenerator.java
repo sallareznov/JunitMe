@@ -171,6 +171,7 @@ public class JUnitTestClassGenerator {
 			// Create the method
 			JMethod method = this.definedClass.method(JMod.PUBLIC, void.class, name);
 			method.annotate(this.codeModel.ref("org.junit.Test"));
+			method._throws(IOException.class);
 			JBlock methodBody = method.body();
 			this.methodList.add(method);
 
@@ -183,7 +184,6 @@ public class JUnitTestClassGenerator {
 			// Generate method calls between variables
 			AMethodCall currentMethodCall = methodCall;
 			while ((currentMethodCall = currentMethodCall.getNext()) != null && !currentMethodCall.isEnd()) {
-
 				// Variables : RECEIVER
 				AObject receiver = currentMethodCall.getReceiver();
 				JVar jvarReceiver = jvarByIName.get(receiver.getInstanceName());
@@ -207,10 +207,28 @@ public class JUnitTestClassGenerator {
 			}
 			final JClass exceptionClass = codeModel.directClass("java.lang.Exception");
 			final JCatchBlock catchBlock = tryBlock._catch(exceptionClass);
+			catchBlock.body().directStatement("System.out.println(\"Exception !\");");
 			catchBlock.body().directStatement("ExceptionInfosBuilder.printInfos(_x);");
 			catchBlock.body()._throw(JExpr.direct("_x"));
-			System.out.println(Class.forName(catchBlock.param("_x").type().binaryName()));
 		}
+	}
+	
+	public void createBeforeClassMethod(String pathname) {
+		JMethod method = this.definedClass.method(JMod.PUBLIC | JMod.STATIC, void.class, "initExceptionBuilder");
+		method.annotate(this.codeModel.ref("org.junit.BeforeClass"));
+		method._throws(IOException.class);
+		JBlock methodBody = method.body();
+		methodBody.directStatement("ExceptionInfosBuilder.initLogFile(\"" + pathname + "\", \"GeneratedClassTest\");");
+		this.methodList.add(method);
+	}
+	
+	public void createAfterClassMethod() {
+		JMethod method = this.definedClass.method(JMod.PUBLIC | JMod.STATIC, void.class, "closeExceptionBuilder");
+		method.annotate(this.codeModel.ref("org.junit.AfterClass"));
+		method._throws(IOException.class);
+		JBlock methodBody = method.body();
+		methodBody.directStatement("ExceptionInfosBuilder.closeLogFile();");
+		this.methodList.add(method);
 	}
 
 	public JClass getJClass(final String qualifiedName) {
@@ -301,15 +319,20 @@ public class JUnitTestClassGenerator {
 			String varName = (className + "_" + aobject.getId()).toLowerCase();
 			jvar = methodBody.decl(jclass, varName);
 			final JInvocation newClass = JExpr._new(jclass);
+			System.out.println(constructorsCalls.size());
 			for (final AConstructorCall call : constructorsCalls) {
+				System.out.println(call.getInstanceName());
 				if (call.getInstanceName().startsWith(aobject.getSimpleName() + "_init")) {
 					for (final AObject param : call.getParams()) {
 						String type = param.getType().getInstanceName().split("\\$")[0];
 						if (type.equals("java_lang_String")) {
-							newClass.arg(JExpr.lit("blabla"));
+							newClass.arg(JExpr.lit("test"));
 						} else {
 							AGenType genType = AGenType.getEnumFromValue(type);
 							switch (genType) {
+							case CHARACTER: 
+								newClass.arg(JExpr.lit('a'));
+								break;
 							case BOOLEAN:
 								newClass.arg(JExpr.lit(false));
 								break;
@@ -368,6 +391,9 @@ public class JUnitTestClassGenerator {
 
 		if (genType != null) {
 			switch (genType) {
+			case CHARACTER: 
+				jvar = methodBody.decl(this.codeModel._ref(char.class), varName).init(JExpr.lit('a'));
+				break;
 			case BOOLEAN:
 				jvar = methodBody.decl(this.codeModel._ref(boolean.class), varName).init(JExpr.lit(false));
 				break;

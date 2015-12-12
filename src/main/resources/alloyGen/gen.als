@@ -1,189 +1,275 @@
-one sig ppc_Jeu_joueUnTour_52 extends Method{}
+one sig naval_Bateau_toString_48 extends Method{}
 fact{
-#ppc_Jeu_joueUnTour_52.paramTypes=2
-ppc_Jeu_joueUnTour_52.paramTypes[0]=ppc_util_Joueur
-ppc_Jeu_joueUnTour_52.paramTypes[1]=ppc_util_Joueur
-ppc_Jeu_joueUnTour_52.receiverType=ppc_Jeu
+#naval_Bateau_toString_48.paramTypes=0
+naval_Bateau_toString_48.receiverType=naval_Bateau
 }
 
 
-one sig ppc_Jeu_readCoup_28 extends Method{}
+one sig naval_Bateau_taille_17 extends Method{}
 fact{
-#ppc_Jeu_readCoup_28.paramTypes=1
-ppc_Jeu_readCoup_28.paramTypes[0]=java_lang_String
-ppc_Jeu_readCoup_28.receiverType=ppc_Jeu
+#naval_Bateau_taille_17.paramTypes=0
+naval_Bateau_taille_17.receiverType=naval_Bateau
 }
 
 
-one sig ppc_Jeu_joueUnePartie_73 extends Method{}
+one sig naval_Bateau_estCoule_23 extends Method{}
 fact{
-#ppc_Jeu_joueUnePartie_73.paramTypes=2
-ppc_Jeu_joueUnePartie_73.paramTypes[0]=ppc_util_Joueur
-ppc_Jeu_joueUnePartie_73.paramTypes[1]=ppc_util_Joueur
-ppc_Jeu_joueUnePartie_73.receiverType=ppc_Jeu
+#naval_Bateau_estCoule_23.paramTypes=0
+naval_Bateau_estCoule_23.receiverType=naval_Bateau
 }
 
 
-one sig ppc_Jeu_init_19 extends ConstructorCall{}
+one sig naval_Bateau_getVie_42 extends Method{}
 fact{
-#ppc_Jeu_init_19.params=1
-ppc_Jeu_init_19.params[0].type=Gen_Integer
+#naval_Bateau_getVie_42.paramTypes=0
+naval_Bateau_getVie_42.receiverType=naval_Bateau
 }
 
 
-one sig ppc_util_Input_readInt_31 extends Method{}
+one sig naval_Bateau_equals_56 extends Method{}
 fact{
-#ppc_util_Input_readInt_31.paramTypes=0
-ppc_util_Input_readInt_31.receiverType=ppc_util_Input
+#naval_Bateau_equals_56.paramTypes=1
+naval_Bateau_equals_56.paramTypes[0]=java_lang_Object
+naval_Bateau_equals_56.receiverType=naval_Bateau
 }
 
 
-one sig ppc_util_Input_readString_21 extends Method{}
+one sig naval_Bateau_touche_34 extends Method{}
 fact{
-#ppc_util_Input_readString_21.paramTypes=0
-ppc_util_Input_readString_21.receiverType=ppc_util_Input
+#naval_Bateau_touche_34.paramTypes=0
+naval_Bateau_touche_34.receiverType=naval_Bateau
 }
 
 
-one sig ppc_util_Input_init_12 extends ConstructorCall{}
+one sig naval_Bateau_init_9 extends ConstructorCall{}
 fact{
-#ppc_util_Input_init_12.params=0
+#naval_Bateau_init_9.params=1
+naval_Bateau_init_9.params[0].type=Gen_Integer
 }
 
 
-one sig ppc_util_Joueur_ajoutePoints_82 extends Method{}
+one sig naval_Case_getBateau_50 extends Method{}
 fact{
-#ppc_util_Joueur_ajoutePoints_82.paramTypes=1
-ppc_util_Joueur_ajoutePoints_82.paramTypes[0]=Gen_Integer
-ppc_util_Joueur_ajoutePoints_82.receiverType=ppc_util_Joueur
+#naval_Case_getBateau_50.paramTypes=0
+naval_Case_getBateau_50.receiverType=naval_Case
 }
 
 
-one sig ppc_util_Joueur_toString_55 extends Method{}
+one sig naval_Case_getCaractere_83 extends Method{}
 fact{
-#ppc_util_Joueur_toString_55.paramTypes=0
-ppc_util_Joueur_toString_55.receiverType=ppc_util_Joueur
+#naval_Case_getCaractere_83.paramTypes=1
+naval_Case_getCaractere_83.paramTypes[0]=Gen_Boolean
+naval_Case_getCaractere_83.receiverType=naval_Case
 }
 
 
-one sig ppc_util_Joueur_joueUnCoup_90 extends Method{}
+one sig naval_Case_aEteVisee_66 extends Method{}
 fact{
-#ppc_util_Joueur_joueUnCoup_90.paramTypes=0
-ppc_util_Joueur_joueUnCoup_90.receiverType=ppc_util_Joueur
+#naval_Case_aEteVisee_66.paramTypes=0
+naval_Case_aEteVisee_66.receiverType=naval_Case
 }
 
 
-one sig ppc_util_Joueur_getScore_47 extends Method{}
+one sig naval_Case_vise_73 extends Method{}
 fact{
-#ppc_util_Joueur_getScore_47.paramTypes=0
-ppc_util_Joueur_getScore_47.receiverType=ppc_util_Joueur
+#naval_Case_vise_73.paramTypes=0
+naval_Case_vise_73.receiverType=naval_Case
 }
 
 
-one sig ppc_util_Joueur_compareScores_64 extends Method{}
+one sig naval_Case_setBateau_58 extends Method{}
 fact{
-#ppc_util_Joueur_compareScores_64.paramTypes=1
-ppc_util_Joueur_compareScores_64.paramTypes[0]=ppc_util_Joueur
-ppc_util_Joueur_compareScores_64.receiverType=ppc_util_Joueur
+#naval_Case_setBateau_58.paramTypes=1
+naval_Case_setBateau_58.paramTypes[0]=naval_Bateau
+naval_Case_setBateau_58.receiverType=naval_Case
 }
 
 
-one sig ppc_util_Joueur_init_27 extends ConstructorCall{}
+one sig naval_Case_init_41 extends ConstructorCall{}
 fact{
-#ppc_util_Joueur_init_27.params=1
-ppc_util_Joueur_init_27.params[0].type=java_lang_String
+#naval_Case_init_41.params=0
 }
 
 
-one sig ppc_util_Joueur_init_37 extends ConstructorCall{}
+one sig naval_DirectionEst_positionSuivante_12 extends Method{}
 fact{
-#ppc_util_Joueur_init_37.params=2
-ppc_util_Joueur_init_37.params[0].type=java_lang_String
-ppc_util_Joueur_init_37.params[1].type=ppc_util_Strategie
+#naval_DirectionEst_positionSuivante_12.paramTypes=1
+naval_DirectionEst_positionSuivante_12.paramTypes[0]=naval_Position
+naval_DirectionEst_positionSuivante_12.receiverType=naval_DirectionEst
 }
 
 
-one sig ppc_util_StrategieAleatoire_coupAJouer_14 extends Method{}
+one sig naval_DirectionEst_init_6 extends ConstructorCall{}
 fact{
-#ppc_util_StrategieAleatoire_coupAJouer_14.paramTypes=0
-ppc_util_StrategieAleatoire_coupAJouer_14.receiverType=ppc_util_StrategieAleatoire
+#naval_DirectionEst_init_6.params=0
 }
 
 
-one sig ppc_util_StrategieAleatoire_init_8 extends ConstructorCall{}
+one sig naval_DirectionNord_positionSuivante_12 extends Method{}
 fact{
-#ppc_util_StrategieAleatoire_init_8.params=0
+#naval_DirectionNord_positionSuivante_12.paramTypes=1
+naval_DirectionNord_positionSuivante_12.paramTypes[0]=naval_Position
+naval_DirectionNord_positionSuivante_12.receiverType=naval_DirectionNord
 }
 
 
-one sig ppc_util_StrategieHumaine_litCoup_13 extends Method{}
+one sig naval_DirectionNord_init_6 extends ConstructorCall{}
 fact{
-#ppc_util_StrategieHumaine_litCoup_13.paramTypes=1
-ppc_util_StrategieHumaine_litCoup_13.paramTypes[0]=java_lang_String
-ppc_util_StrategieHumaine_litCoup_13.receiverType=ppc_util_StrategieHumaine
+#naval_DirectionNord_init_6.params=0
 }
 
 
-one sig ppc_util_StrategieHumaine_coupAJouer_36 extends Method{}
+one sig naval_DirectionOuest_positionSuivante_12 extends Method{}
 fact{
-#ppc_util_StrategieHumaine_coupAJouer_36.paramTypes=0
-ppc_util_StrategieHumaine_coupAJouer_36.receiverType=ppc_util_StrategieHumaine
+#naval_DirectionOuest_positionSuivante_12.paramTypes=1
+naval_DirectionOuest_positionSuivante_12.paramTypes[0]=naval_Position
+naval_DirectionOuest_positionSuivante_12.receiverType=naval_DirectionOuest
 }
 
 
-one sig ppc_util_StrategieHumaine_init_6 extends ConstructorCall{}
+one sig naval_DirectionOuest_init_6 extends ConstructorCall{}
 fact{
-#ppc_util_StrategieHumaine_init_6.params=0
+#naval_DirectionOuest_init_6.params=0
 }
 
 
-one sig ppc_util_StrategiePapier_coupAJouer_12 extends Method{}
+one sig naval_DirectionSud_positionSuivante_12 extends Method{}
 fact{
-#ppc_util_StrategiePapier_coupAJouer_12.paramTypes=0
-ppc_util_StrategiePapier_coupAJouer_12.receiverType=ppc_util_StrategiePapier
+#naval_DirectionSud_positionSuivante_12.paramTypes=1
+naval_DirectionSud_positionSuivante_12.paramTypes[0]=naval_Position
+naval_DirectionSud_positionSuivante_12.receiverType=naval_DirectionSud
 }
 
 
-one sig ppc_util_StrategiePapier_init_6 extends ConstructorCall{}
+one sig naval_DirectionSud_init_6 extends ConstructorCall{}
 fact{
-#ppc_util_StrategiePapier_init_6.params=0
+#naval_DirectionSud_init_6.params=0
 }
 
 
-one sig ppc_util_StrategiePierre_coupAJouer_12 extends Method{}
+one sig naval_Jeu_init_18 extends Method{}
 fact{
-#ppc_util_StrategiePierre_coupAJouer_12.paramTypes=0
-ppc_util_StrategiePierre_coupAJouer_12.receiverType=ppc_util_StrategiePierre
+#naval_Jeu_init_18.paramTypes=0
+naval_Jeu_init_18.receiverType=naval_Jeu
 }
 
 
-one sig ppc_util_StrategiePierre_init_6 extends ConstructorCall{}
+one sig naval_Jeu_joue_24 extends Method{}
 fact{
-#ppc_util_StrategiePierre_init_6.params=0
+#naval_Jeu_joue_24.paramTypes=0
+naval_Jeu_joue_24.receiverType=naval_Jeu
 }
 
 
-one sig ppc_util_Coup_compareCoups_17 extends Method{}
+one sig naval_Jeu_init_14 extends ConstructorCall{}
 fact{
-#ppc_util_Coup_compareCoups_17.paramTypes=1
-ppc_util_Coup_compareCoups_17.paramTypes[0]=ppc_util_Coup
-ppc_util_Coup_compareCoups_17.receiverType=ppc_util_Coup
+#naval_Jeu_init_14.params=2
+naval_Jeu_init_14.params[0].type=Gen_Integer
+naval_Jeu_init_14.params[1].type=Gen_Integer
 }
 
 
-one sig ppc_util_Coup_init_6 extends ConstructorCall{}
+one sig naval_Mer_poseBateau_87 extends Method{}
 fact{
-#ppc_util_Coup_init_6.params=0
+#naval_Mer_poseBateau_87.paramTypes=3
+naval_Mer_poseBateau_87.paramTypes[0]=naval_Bateau
+naval_Mer_poseBateau_87.paramTypes[1]=naval_Position
+naval_Mer_poseBateau_87.paramTypes[2]=naval_Direction
+naval_Mer_poseBateau_87.receiverType=naval_Mer
 }
 
 
-one sig ppc_util_Strategie extends Type{}
-one sig java_lang_String extends Type{}
-one sig ppc_Jeu extends Type{}
-one sig ppc_util_Joueur extends Type{}
-one sig ppc_util_StrategieAleatoire extends Type{}
-one sig ppc_util_StrategieHumaine extends Type{}
-one sig ppc_util_StrategiePierre extends Type{}
-one sig ppc_util_Coup extends Type{}
-one sig ppc_util_Input extends Type{}
-one sig ppc_util_StrategiePapier extends Type{}
+one sig naval_Mer_vise_26 extends Method{}
+fact{
+#naval_Mer_vise_26.paramTypes=1
+naval_Mer_vise_26.paramTypes[0]=naval_Position
+naval_Mer_vise_26.receiverType=naval_Mer
+}
+
+
+one sig naval_Mer_renvoieCase_52 extends Method{}
+fact{
+#naval_Mer_renvoieCase_52.paramTypes=1
+naval_Mer_renvoieCase_52.paramTypes[0]=naval_Position
+naval_Mer_renvoieCase_52.receiverType=naval_Mer
+}
+
+
+one sig naval_Mer_getPlateau_19 extends Method{}
+fact{
+#naval_Mer_getPlateau_19.paramTypes=0
+naval_Mer_getPlateau_19.receiverType=naval_Mer
+}
+
+
+one sig naval_Mer_affichage_64 extends Method{}
+fact{
+#naval_Mer_affichage_64.paramTypes=1
+naval_Mer_affichage_64.paramTypes[0]=Gen_Boolean
+naval_Mer_affichage_64.receiverType=naval_Mer
+}
+
+
+one sig naval_Mer_init_8 extends ConstructorCall{}
+fact{
+#naval_Mer_init_8.params=2
+naval_Mer_init_8.params[0].type=Gen_Integer
+naval_Mer_init_8.params[1].type=Gen_Integer
+}
+
+
+one sig naval_Position_toString_46 extends Method{}
+fact{
+#naval_Position_toString_46.paramTypes=0
+naval_Position_toString_46.receiverType=naval_Position
+}
+
+
+one sig naval_Position_getY_38 extends Method{}
+fact{
+#naval_Position_getY_38.paramTypes=0
+naval_Position_getY_38.receiverType=naval_Position
+}
+
+
+one sig naval_Position_equals_54 extends Method{}
+fact{
+#naval_Position_equals_54.paramTypes=1
+naval_Position_equals_54.paramTypes[0]=naval_Position
+naval_Position_equals_54.receiverType=naval_Position
+}
+
+
+one sig naval_Position_getX_30 extends Method{}
+fact{
+#naval_Position_getX_30.paramTypes=0
+naval_Position_getX_30.receiverType=naval_Position
+}
+
+
+one sig naval_Position_init_21 extends ConstructorCall{}
+fact{
+#naval_Position_init_21.params=2
+naval_Position_init_21.params[0].type=Gen_Integer
+naval_Position_init_21.params[1].type=Gen_Integer
+}
+
+
+one sig naval_Reponse_init_6 extends ConstructorCall{}
+fact{
+#naval_Reponse_init_6.params=0
+}
+
+
+one sig naval_DirectionNord extends Type{}
+one sig naval_Position extends Type{}
+one sig naval_Jeu extends Type{}
+one sig naval_Mer extends Type{}
+one sig naval_Bateau extends Type{}
+one sig naval_DirectionSud extends Type{}
+one sig naval_DirectionOuest extends Type{}
+one sig java_lang_Object extends Type{}
+one sig naval_Case extends Type{}
+one sig naval_DirectionEst extends Type{}
+one sig naval_Direction extends Type{}
+one sig naval_Reponse extends Type{}

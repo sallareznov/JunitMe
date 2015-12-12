@@ -14,7 +14,7 @@ sig Object{
     constructor : ConstructorCall
 }
 \end{lstlisting}
-\subparagraph{Methods} A very important thing in order  to simulate an execution trace, is to have the trace of execution with successive methods calls and not only instances of objects of simple type declaration. Successive methods calls can be presented in a linked list, so later on, simply by getting the head of the list we can browse a gernerated instance and we will have an access to method calls. The following Alloy code represent how we represented methods in Alloy model.
+\subparagraph{Methods} A very important thing in order  to simulate an execution trace, is to have the trace of execution with successive methods calls and not only instances of objects of simple type declaration. Successive methods calls can be presented in a linked list, so later on, simply by getting the head of the list we can browse a gernerated instance and we will have an access to method calls. The following Alloy code represent how we have represented methods in Alloy model.
 
 \begin{lstlisting}
 sig ConstructorCall{
@@ -108,5 +108,5 @@ one sig Gen_Short extends Type{}
 \end{lstlisting}
 
 \paragraph{Code generation}
-To generate Alloy instances for an existing Java program we used Spoon. Spoon uses AST (Abstract syntax tree)\cite{ast} to browse the structure of a specified program. With informations collected in the AST, we are able to generate the code of Alloy program corresponding to the initial Java program. The generated code is then grafted to the base model.
+To generate Alloy instances for an existing Java program we used Spoon(\ref{subsec:impl}). Spoon uses AST (Abstract syntax tree)\cite{ast} to browse the structure of a specified program. With informations collected in the AST, we are able to generate the code of Alloy program corresponding to the initial Java program. The generated code is then grafted to the base model.
 Result is a complet Alloy model inside the file FinalGen.als

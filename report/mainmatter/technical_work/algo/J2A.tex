@@ -107,6 +107,46 @@ one sig Gen_Long extends Type{}
 one sig Gen_Short extends Type{}
 \end{lstlisting}
 
-\paragraph{Code generation}
+\paragraph{Generating Alloy Code}
 To generate Alloy instances for an existing Java program we used Spoon(\ref{subsec:impl}). Spoon uses AST (Abstract syntax tree)\cite{ast} to browse the structure of a specified program. With informations collected in the AST, we are able to generate the code of Alloy program corresponding to the initial Java program. The generated code is then grafted to the base model.
-Result is a complet Alloy model inside the file FinalGen.als
+Result is a complet Alloy model inside the file FinalGen.als\\
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{Java source code}
+\KwResult{Alloy model}
+ \ForEach{class $c$}{
+		Modify the name of class from $package.class$ to $package\_class$\;
+		Add $ClassName$ as a type to Alloy file\;
+ 		\ForEach {method $m$ in $c$}{
+ 	Create method name as: $className\_MethodName\_NumberOflineInJavaFile$\;
+	Add a $Sig$ extending $Method\{\}$ representing the method $m$ into Alloy model\;	 		
+	Add to Alloy model number of method parameters as a $fact$\;
+	\ForEach{Parameter $p$ in $m$}{
+		Add to Alloy model the type of $p$ as a $fact$\;
+		}
+		Add to Alloy model the type of $receiver$ as a $fact$\;
+ 	  }
+ 	  \ForEach{Constructor $ct$ in $c$}{
+		 Add a $Sig$ extending $ConstructorCall\{\}$ representing the constructor $ct$ in	to Alloy model\;
+		 Add to Alloy model number of constructor parameters as a $fact$\;
+		 \ForEach{Parameter $p$ in $ct$}{
+		Add to Alloy model the type of $p$ as a $fact$\;
+		}	  
+ 	  }
+ 	}
+\caption{How to transfer Java code to Alloy model}
+\end{algorithm}
+\bigskip
+An example of the results output:
+\begin{lstlisting}
+sig package_myClass extends Type{}
+sig package_myClass_method_1 extends Method{}
+fact{
+  #package_myClass_method_1.params=3
+  package_myClass_method_1.param[0].type=typeArg1
+  package_myClass_method_1.param[1].type=typeArg2
+  package_myClass_method_1.param[2].type=typeArg3
+  package_myClass_method_1.receiverType=X
+}
+\end{lstlisting}

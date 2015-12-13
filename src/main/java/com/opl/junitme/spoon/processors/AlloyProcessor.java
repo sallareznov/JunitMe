@@ -72,7 +72,7 @@ public class AlloyProcessor extends AbstractProcessor<CtClass<?>> {
 						}
 						signatureBuilder.append(methodName + ".paramTypes[" + (i++) + "]=" + name + "\n");
 						// writer.println(methodName + ".paramTypes[" + (i++) +
-					\KwData{this text}	// "]=" + name);
+						// "]=" + name);
 						if (addMethod) {
 							linesToAdd.add(name);
 						}
@@ -171,7 +171,7 @@ public class AlloyProcessor extends AbstractProcessor<CtClass<?>> {
 							linesToAdd.add(name);
 						}
 					} else {
-						if (param.getType().grepresentingetQualifiedName().equals(int.class.getName())
+						if (param.getType().getQualifiedName().equals(int.class.getName())
 								| param.getType().getQualifiedName().equals(Integer.class.getName())) {
 							signatureBuilder.append(constructorName + ".params[" + (i++) + "].type=Gen_Integer\n");
 							// writer.println(methodName + ".paramTypes[" +

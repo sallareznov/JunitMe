@@ -5,14 +5,13 @@ Using Alloy Analyzer we execute the generated Alloy source code. Alloy Analyzer 
 Each instance is a solution, we can obtain a solution using A4Solution object. A4Solution object has a method \textit{satisfiable} to check if the solution is valid and a method \textit{next} to go the next possible solution.
 
 \paragraph{Creating Java object}
-Each alloy instance is represented by a Java object called: \textit{AlloyInstance}.***************
+Each alloy instance is represented by a Java object called: \textit{AlloyInstance}.
 
 \paragraph{Generating tests}
 In order To generate the code of Java unit tests we used CodeModel, which allows us to generate Java classes in a simple way.\\
-We browse Java modelized solution and we generate the variables used to call methods and the variables passed as methods parameters.\\
+We browse Java modelized solution and generate the variables used to call methods and the variables passed as methods parameters.\\
 For each solution we use the execution trace.
-Firstly, we initalize all the necessary types for the receiver method, then all the veriables that will be used in parameters.
-
+Firstly, we initalize all the necessary types for the receiver method, then all the veriables that will be used in parameters. \\~\\
 \begin{algorithm}[H]
 \SetAlgoLined
 \KwData{Alloy instance modelized in Java}
@@ -35,6 +34,7 @@ Firstly, we initalize all the necessary types for the receiver method, then all 
 \bigskip
 \bigskip
 An example of the results output:
+
 \lstset{ %
   backgroundcolor=\color{white},   % choose the background color
   basicstyle=\footnotesize,        % size of fonts used for the code
@@ -42,14 +42,33 @@ An example of the results output:
   captionpos=b,                    % sets the caption-position to bottom
   commentstyle=\color{mygreen},    % comment style
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
-  keywordstyle=\color{blue},       % keyword style
-  stringstyle=\color{mymauve},     % string literal style
+  keywordstyle=\color{red!40!black},    % keyword style
+  stringstyle=\color{mymauve}, 
+  upquote=true    % string literal style
 }
+
+\begin{lstlisting}[language=java]
+@BeforeClass
+public static void initExceptionBuilder() throws IOException {
+	ExceptionLogger.initLogFile();
+}
+\end{lstlisting}
+
 \begin{lstlisting}[language=java]
 @Test
-public void testmethod() {
-  try{
-  }catch(java.lang.Exception exception){
+public void test0() throws Exception {
+  try {
+  			
+  }catch(java.lang.Exception x){							             	ExceptionsLogger.logException(x);
+  	throw(x);
   }
 }
 \end{lstlisting}
+
+\begin{lstlisting}[language=java]
+@AfterClass
+public static void closeExceptionBuilder() throws IOException {
+   ExceptionLogger.closeLogFile();
+}
+\end{lstlisting}
+

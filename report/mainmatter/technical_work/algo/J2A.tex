@@ -3,8 +3,10 @@
 \paragraph{Base model}
 The base model is a meta-model, It is the base of the generated java to Alloy program.
 It is composed of four parts: Types, methods, methods constraints and methods arguments.
-\lstset{language=Alloy} 
-\subparagraph{Types} All types have a super-type: \textit{Type}. In addition, every object has a type.
+
+\lstset{language=Alloy}
+
+\paragraph{Types} All types have a super-type: \textit{Type}. In addition, every object has a type and a constructor.
 \begin{lstlisting}
 abstract sig Type{
 }
@@ -14,12 +16,12 @@ sig Object{
     constructor : ConstructorCall
 }
 \end{lstlisting}
-\subparagraph{Methods} A very important thing in order  to simulate an execution trace, is to have the trace of execution with successive methods calls and not only instances of objects of simple type declaration. Successive methods calls can be presented in a linked list, so later on, simply by getting the head of the list we can browse a gernerated instance and we will have an access to method calls. The following Alloy code represent how we have represented methods in Alloy model.
+
+\paragraph{Methods} A very important thing in order  to simulate an execution trace, is to have the trace of execution with successive methods calls and not only instances of objects of simple type declaration. Successive methods calls can be presented in a linked list, so later on, simply by getting the head of the list we can browse a gernerated instance and we will have an access to method calls. The following Alloy code represent how we have represented methods in Alloy model.
 
 \begin{lstlisting}
 sig ConstructorCall{
-    method: Method,
-    params: seq Object
+    paramTypes: seq Type
 }
 
 abstract sig Call{
@@ -46,7 +48,10 @@ abstract sig Method {
     receiverType : Type
 }
 \end{lstlisting}
-\subparagraph{Constraints} Methods in every instance generated later on should respect couple of constraints, such like a method can call itself. the following Alloy code represent the constraints used to generate Alloy model. 
+
+\paragraph{Constraints}
+Methods in every instance generated later on should respect numerous constraints, such like a method not being able to call itself. The following Alloy code represents the constraints used in the Alloy model. 
+
 \begin{lstlisting}
 ------ Method Constraints-------
 
@@ -80,7 +85,7 @@ fact{
     all mc:MethodCall | mc.receiver.type=mc.method.receiverType
 }
 \end{lstlisting}
-\subparagraph{Arguments} Primitve types has been inculded in the base model. All other used types in a given program are generated in runtime. 
+\paragraph{Arguments} Primitve types has been included in the base model. All other used types in a given program are generated at runtime. 
 \begin{lstlisting}
 ------- Param Constraints ------
 

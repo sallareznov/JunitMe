@@ -1,16 +1,14 @@
 \chapter*{Introduction}
 	\thispagestyle{introduction}
 	\addcontentsline{toc}{chapter}{Introduction}
-	"Every program is guilty until proven innocent"
+	"Every program is guilty until proven innocent".
 	
-	During the development phase, developers spend lots of time to write tests corresponding to code they have written in the program.
+	During the development phase, developers spend lots of time writing tests for code they have written. But these tests can be very so tedious and repetitive, that developers sometimes botch or simply skip this very important part of software development.
 	
-	A program with high code coverage has been more thoroughly tested and has a lower chance of containing software bugs than a program with low code coverage.\cite{CodeCoverage}
+	But what if developers didn't have to spend hours writing tests to find bugs and have a good code coverage of their program? What if there was a magic stick that can generate a bunch of unit tests? 
 	
-	But what if developers didn't have to spend hours writing tests to have a good code coverage? What if there was a magic stick that can generate a bunch of unit tests? 
-	
-Since Java is one of the most used programming languages in the world, we have decided to find a solution that would generate automatically Java unit tests. That would save time for developers, and would give the time and the energy to focus on working on business layer.
+Since Java is one of the most used programming languages nowadays, we implemented a solution that would generate automatically Java unit tests. That would save time for developers, and give the time and the energy to focus on working on the business layer.
 
-This project is an extended version of an application developed by Valentin Lefils and Quentin Marrecau \cite{JUnitMeRapport} \cite{JUnitMeGitHub} . The first version of the application has treated the same problems we are facing, but only on small example of Java programs.
+This project is an extended version of an application developed by Valentin Lefils and Quentin Marrecau \cite{JUnitMeRapport} \cite{JUnitMeGitHub} . The first version of the application treated the same problems we are facing, but only on small examples of Java programs.
 
 In this project, we present our tool: JUnitMe2.0. Our tool can generate automatically Java unit tests for any Java open source application. From a description of specification, our tool generate all instances that covere the data specifications, then generate the unit tests corresponding to these instances.

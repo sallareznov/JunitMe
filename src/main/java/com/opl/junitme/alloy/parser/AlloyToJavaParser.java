@@ -59,8 +59,6 @@ public class AlloyToJavaParser {
 		Command cmd = model.getAllCommands().get(0);
 		System.out.println(cmd);
 		
-		System.out.println("here");
-
 		// Execute the model using the command obtained in step 2
 		A4Solution solution = TranslateAlloyToKodkod.execute_command(null, model.getAllReachableSigs(), cmd,
 				new A4Options());

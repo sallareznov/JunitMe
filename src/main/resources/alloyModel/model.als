@@ -7,8 +7,7 @@ sig Object{
 }
 
 sig ConstructorCall{
-    method: Method,
-    params: seq Object
+    paramTypes : seq Type
 }
 
 abstract sig Call{

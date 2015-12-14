@@ -26,7 +26,8 @@ public class AlloyProcessor extends AbstractProcessor<CtClass<?>> {
 
 	@Override
 	public boolean isToBeProcessed(CtClass<?> candidate) {
-		return candidate.isTopLevel() && !candidate.isInterface() && !candidate.hasModifier(ModifierKind.ABSTRACT);
+		return candidate.isTopLevel() && !candidate.isInterface()
+				&& !candidate.hasModifier(ModifierKind.ABSTRACT);
 	}
 
 	@Override
@@ -35,7 +36,8 @@ public class AlloyProcessor extends AbstractProcessor<CtClass<?>> {
 
 		try {
 
-			writer = new PrintWriter(new BufferedWriter(new FileWriter("src/main/resources/alloyGen/gen.als", true)));
+			writer = new PrintWriter(new BufferedWriter(new FileWriter(
+					"src/main/resources/alloyGen/gen.als", true)));
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -46,192 +48,283 @@ public class AlloyProcessor extends AbstractProcessor<CtClass<?>> {
 			linesToAdd.add(className);
 
 			for (CtMethod<?> method : cl.getAllMethods()) {
+				if (method.hasModifier(ModifierKind.PUBLIC)) {
+					boolean addMethod = true;
+					final StringBuilder signatureBuilder = new StringBuilder();
 
-				boolean addMethod = true;
-				final StringBuilder signatureBuilder = new StringBuilder();
+					String methodName = className + "_"
+							+ method.getSimpleName() + "_"
+							+ method.getPosition().getLine();
 
-				String methodName = className + "_" + method.getSimpleName() + "_" + method.getPosition().getLine();
+					signatureBuilder.append("one sig " + methodName
+							+ " extends Method{}\n");
+					// writer.println("one sig " + methodName + " extends
+					// Method{}");
 
-				signatureBuilder.append("one sig " + methodName + " extends Method{}\n");
-				// writer.println("one sig " + methodName + " extends
-				// Method{}");
+					signatureBuilder.append("fact{\n");
+					// writer.println("fact{");
 
-				signatureBuilder.append("fact{\n");
-				// writer.println("fact{");
+					signatureBuilder.append("#" + methodName + ".paramTypes="
+							+ method.getParameters().size() + "\n");
+					// writer.println("#" + methodName + ".paramTypes=" +
+					// method.getParameters().size());
 
-				signatureBuilder.append("#" + methodName + ".paramTypes=" + method.getParameters().size() + "\n");
-				// writer.println("#" + methodName + ".paramTypes=" +
-				// method.getParameters().size());
-
-				int i = 0;
-				for (CtParameter<?> param : method.getParameters()) {
-					if (!param.getType().isPrimitive()) {
-						String name = param.getType().toString().replace(".", "_");
-						if (name.contains("[]") || name.contains("<")) {
-							addMethod = false;
-						}
-						signatureBuilder.append(methodName + ".paramTypes[" + (i++) + "]=" + name + "\n");
-						// writer.println(methodName + ".paramTypes[" + (i++) +
-						// "]=" + name);
-						if (addMethod) {
-							linesToAdd.add(name);
-						}
-					} else {
-						if (param.getType().getQualifiedName().equals(int.class.getName())
-								| param.getType().getQualifiedName().equals(Integer.class.getName())) {
-							signatureBuilder.append(methodName + ".paramTypes[" + (i++) + "]=Gen_Integer\n");
+					int i = 0;
+					for (CtParameter<?> param : method.getParameters()) {
+						if (!param.getType().isPrimitive()) {
+							String name = param.getType().toString()
+									.replace(".", "_");
+							if (name.contains("[]") || name.contains("<")) {
+								addMethod = false;
+							}
+							signatureBuilder.append(methodName + ".paramTypes["
+									+ (i++) + "]=" + name + "\n");
 							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Integer");
-						} else if (param.getType().getQualifiedName().equals(float.class.getName())
-								| param.getType().getQualifiedName().equals(Float.class.getName())) {
-							signatureBuilder.append(methodName + ".paramTypes[" + (i++) + "]=Gen_Float\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Float");
-						} else if (param.getType().getQualifiedName().equals(boolean.class.getName())
-								| param.getType().getQualifiedName().equals(Boolean.class.getName())) {
-							signatureBuilder.append(methodName + ".paramTypes[" + (i++) + "]=Gen_Boolean\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Boolean");
-						} else if (param.getType().getQualifiedName().equals(byte.class.getName())
-								| param.getType().getQualifiedName().equals(Byte.class.getName())) {
-							signatureBuilder.append(methodName + ".paramTypes[" + (i++) + "]=Gen_Byte\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Byte");
-						} else if (param.getType().getQualifiedName().equals(short.class.getName())
-								| param.getType().getQualifiedName().equals(Short.class.getName())) {
-							signatureBuilder.append(methodName + ".paramTypes[" + (i++) + "]=Gen_Short\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Short");
-						} else if (param.getType().getQualifiedName().equals(double.class.getName())
-								| param.getType().getQualifiedName().equals(Double.class.getName())) {
-							signatureBuilder.append(methodName + ".paramTypes[" + (i++) + "]=Gen_Double\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Double");
-						} else if (param.getType().getQualifiedName().equals(char.class.getName())
-								| param.getType().getQualifiedName().equals(Character.class.getName())) {
-							signatureBuilder.append(methodName + ".paramTypes[" + (i++) + "]=Gen_Character\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Character");
-						} else if (param.getType().getQualifiedName().equals(long.class.getName())
-								| param.getType().getQualifiedName().equals(Long.class.getName())) {
-							signatureBuilder.append(methodName + ".paramTypes[" + (i++) + "]=Gen_Long\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Long");
+							// (i++) +
+							// "]=" + name);
+							if (addMethod) {
+								linesToAdd.add(name);
+							}
 						} else {
-							final String type = param.getType().getQualifiedName().replace('.', '_');
-							signatureBuilder.append(methodName + ".paramTypes[" + (i++) + "]=Gen_" + type + "\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_" + type);
+							if (param.getType().getQualifiedName()
+									.equals(int.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Integer.class.getName())) {
+								signatureBuilder.append(methodName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Integer\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Integer");
+							} else if (param.getType().getQualifiedName()
+									.equals(float.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Float.class.getName())) {
+								signatureBuilder.append(methodName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Float\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Float");
+							} else if (param.getType().getQualifiedName()
+									.equals(boolean.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Boolean.class.getName())) {
+								signatureBuilder.append(methodName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Boolean\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Boolean");
+							} else if (param.getType().getQualifiedName()
+									.equals(byte.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Byte.class.getName())) {
+								signatureBuilder.append(methodName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Byte\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Byte");
+							} else if (param.getType().getQualifiedName()
+									.equals(short.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Short.class.getName())) {
+								signatureBuilder.append(methodName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Short\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Short");
+							} else if (param.getType().getQualifiedName()
+									.equals(double.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Double.class.getName())) {
+								signatureBuilder.append(methodName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Double\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Double");
+							} else if (param.getType().getQualifiedName()
+									.equals(char.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Character.class.getName())) {
+								signatureBuilder.append(methodName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Character\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Character");
+							} else if (param.getType().getQualifiedName()
+									.equals(long.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Long.class.getName())) {
+								signatureBuilder.append(methodName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Long\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Long");
+							} else {
+								final String type = param.getType()
+										.getQualifiedName().replace('.', '_');
+								signatureBuilder.append(methodName
+										+ ".paramTypes[" + (i++) + "]=Gen_"
+										+ type + "\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_" + type);
+							}
 						}
 					}
-				}
-				signatureBuilder.append(methodName + ".receiverType=" + className + "\n");
-				// writer.println(methodName + ".receiverType=" + className);
+					signatureBuilder.append(methodName + ".receiverType="
+							+ className + "\n");
+					// writer.println(methodName + ".receiverType=" +
+					// className);
 
-				signatureBuilder.append("}\n\n");
-				// writer.println("}\n");
+					signatureBuilder.append("}\n\n");
+					// writer.println("}\n");
 
-				if (addMethod) {
-					writer.println(signatureBuilder.toString());
+					if (addMethod) {
+						writer.println(signatureBuilder.toString());
+					}
+					// writer.flush();
 				}
-				// writer.flush();
 			}
 
+			int cpt = 1;
 			for (final CtConstructor<?> constructor : cl.getConstructors()) {
-				String constructorName = className + "_" + constructor.getSimpleName() + "_"
-						+ constructor.getPosition().getLine();
-				constructorName = constructorName.replace("<", "");
-				constructorName = constructorName.replace(">", "");
-				boolean addConstructor = true;
-				final StringBuilder signatureBuilder = new StringBuilder();
+				if (constructor.hasModifier(ModifierKind.PUBLIC)) {
+					String constructorName = className + "_"
+							+ constructor.getSimpleName() + "" + (cpt++) + "_"
+							+ constructor.getPosition().getLine();
+					constructorName = constructorName.replace("<", "");
+					constructorName = constructorName.replace(">", "");
+					boolean addConstructor = true;
+					final StringBuilder signatureBuilder = new StringBuilder();
 
-				signatureBuilder.append("one sig " + constructorName + " extends ConstructorCall{}\n");
-				// writer.println("one sig " + methodName + " extends
-				// Method{}");
+					signatureBuilder.append("one sig " + constructorName
+							+ " extends ConstructorCall{}\n");
+					// writer.println("one sig " + methodName + " extends
+					// Method{}");
 
-				signatureBuilder.append("fact{\n");
-				// writer.println("fact{");
+					signatureBuilder.append("fact{\n");
+					// writer.println("fact{");
 
-				signatureBuilder
-						.append("#" + constructorName + ".params=" + constructor.getParameters().size() + "\n");
-				// writer.println("#" + methodName + ".paramTypes=" +
-				// method.getParameters().size());
+					signatureBuilder.append("#" + constructorName
+							+ ".paramTypes="
+							+ constructor.getParameters().size() + "\n");
+					// writer.println("#" + methodName + ".paramTypes=" +
+					// method.getParameters().size());
 
-				int i = 0;
-				for (CtParameter<?> param : constructor.getParameters()) {
-					if (!param.getType().isPrimitive()) {
-						String name = param.getType().toString().replace(".", "_");
-						if (name.contains("[]") || name.contains("<")) {
-							addConstructor = false;
-						}
-						signatureBuilder.append(constructorName + ".params[" + (i++) + "].type=" + name + "\n");
-						// writer.println(methodName + ".paramTypes[" + (i++) +
-						// "]=" + name);
-						if (addConstructor) {
-							linesToAdd.add(name);
-						}
-					} else {
-						if (param.getType().getQualifiedName().equals(int.class.getName())
-								| param.getType().getQualifiedName().equals(Integer.class.getName())) {
-							signatureBuilder.append(constructorName + ".params[" + (i++) + "].type=Gen_Integer\n");
+					int i = 0;
+					for (CtParameter<?> param : constructor.getParameters()) {
+						if (!param.getType().isPrimitive()) {
+							String name = param.getType().toString()
+									.replace(".", "_");
+							if (name.contains("[]") || name.contains("<")) {
+								addConstructor = false;
+							}
+							signatureBuilder.append(constructorName
+									+ ".paramTypes[" + (i++) + "]=" + name
+									+ "\n");
 							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Integer");
-						} else if (param.getType().getQualifiedName().equals(float.class.getName())
-								| param.getType().getQualifiedName().equals(Float.class.getName())) {
-							signatureBuilder.append(constructorName + ".params[" + (i++) + "].type=Gen_Float\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Float");
-						} else if (param.getType().getQualifiedName().equals(boolean.class.getName())
-								| param.getType().getQualifiedName().equals(Boolean.class.getName())) {
-							signatureBuilder.append(constructorName + ".params[" + (i++) + "].type=Gen_Boolean\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Boolean");
-						} else if (param.getType().getQualifiedName().equals(byte.class.getName())
-								| param.getType().getQualifiedName().equals(Byte.class.getName())) {
-							signatureBuilder.append(constructorName + ".params[" + (i++) + "].type=Gen_Byte\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Byte");
-						} else if (param.getType().getQualifiedName().equals(short.class.getName())
-								| param.getType().getQualifiedName().equals(Short.class.getName())) {
-							signatureBuilder.append(constructorName + ".params[" + (i++) + "].type=Gen_Short\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Short");
-						} else if (param.getType().getQualifiedName().equals(double.class.getName())
-								| param.getType().getQualifiedName().equals(Double.class.getName())) {
-							signatureBuilder.append(constructorName + ".params[" + (i++) + "].type=Gen_Double\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Double");
-						} else if (param.getType().getQualifiedName().equals(char.class.getName())
-								| param.getType().getQualifiedName().equals(Character.class.getName())) {
-							signatureBuilder.append(constructorName + ".params[" + (i++) + "].type=Gen_Character\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Character");
-						} else if (param.getType().getQualifiedName().equals(long.class.getName())
-								| param.getType().getQualifiedName().equals(Long.class.getName())) {
-							signatureBuilder.append(constructorName + ".params[" + (i++) + "].type=Gen_Long\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_Long");
+							// (i++) +
+							// "]=" + name);
+							if (addConstructor) {
+								linesToAdd.add(name);
+							}
 						} else {
-							final String type = param.getType().getQualifiedName().replace('.', '_');
-							signatureBuilder.append(constructorName + ".params[" + (i++) + "].type=Gen_" + type + "\n");
-							// writer.println(methodName + ".paramTypes[" +
-							// (i++) + "]=Gen_" + type);
+							if (param.getType().getQualifiedName()
+									.equals(int.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Integer.class.getName())) {
+								signatureBuilder.append(constructorName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Integer\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Integer");
+							} else if (param.getType().getQualifiedName()
+									.equals(float.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Float.class.getName())) {
+								signatureBuilder.append(constructorName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Float\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Float");
+							} else if (param.getType().getQualifiedName()
+									.equals(boolean.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Boolean.class.getName())) {
+								signatureBuilder.append(constructorName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Boolean\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Boolean");
+							} else if (param.getType().getQualifiedName()
+									.equals(byte.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Byte.class.getName())) {
+								signatureBuilder.append(constructorName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Byte\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Byte");
+							} else if (param.getType().getQualifiedName()
+									.equals(short.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Short.class.getName())) {
+								signatureBuilder.append(constructorName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Short\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Short");
+							} else if (param.getType().getQualifiedName()
+									.equals(double.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Double.class.getName())) {
+								signatureBuilder.append(constructorName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Double\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Double");
+							} else if (param.getType().getQualifiedName()
+									.equals(char.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Character.class.getName())) {
+								signatureBuilder.append(constructorName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Character\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Character");
+							} else if (param.getType().getQualifiedName()
+									.equals(long.class.getName())
+									| param.getType().getQualifiedName()
+											.equals(Long.class.getName())) {
+								signatureBuilder.append(constructorName
+										+ ".paramTypes[" + (i++)
+										+ "]=Gen_Long\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_Long");
+							} else {
+								final String type = param.getType()
+										.getQualifiedName().replace('.', '_');
+								signatureBuilder.append(constructorName
+										+ ".paramTypes[" + (i++) + "]=Gen_"
+										+ type + "\n");
+								// writer.println(methodName + ".paramTypes[" +
+								// (i++) + "]=Gen_" + type);
+							}
 						}
 					}
-				}
-				// writer.println(methodName + ".receiverType=" + className);
+					// writer.println(methodName + ".receiverType=" +
+					// className);
 
-				signatureBuilder.append("}\n\n");
-				// writer.println("}\n");
+					signatureBuilder.append("}\n\n");
+					// writer.println("}\n");
 
-				if (addConstructor) {
-					writer.println(signatureBuilder.toString());
+					if (addConstructor) {
+						writer.println(signatureBuilder.toString());
+					}
 				}
 
 			}
 			writer.flush();
 		}
-		
+
 	}
 
 	@Override

@@ -10,23 +10,19 @@ import com.opl.junitme.constants.ASpecificationEnum;
 public class AConstructorCall extends AModel {
 
 	private AMethod method;
-	private List<AObject> params;
+	private List<AType> paramTypes;
 
 	public AConstructorCall(final int id) {
 		super(id, AModelEnum.CONSTRUCTOR_CALL);
-		params = new LinkedList<AObject>();
+		paramTypes = new LinkedList<AType>();
 	}
 
 	@Override
 	public void setSpecification(ASpecificationEnum field, String element) {
 		AModel createdElement = AlloyInstanceManager.getCurrentAlloyInstance().addElement(element);
 		switch (field) {
-		case PARAMS:
-			this.params.add((AObject) createdElement);
-			break;
-		case METHOD:
-			this.method = (AMethod) AlloyInstanceManager.getCurrentAlloyInstance().addElement(element,
-					AModelEnum.METHOD);
+		case PARAM_TYPES:
+			this.paramTypes.add((AType) createdElement);
 			break;
 		default:
 			break;
@@ -37,8 +33,8 @@ public class AConstructorCall extends AModel {
 		return method;
 	}
 
-	public List<AObject> getParams() {
-		return params;
+	public List<AType> getParamTypes() {
+		return paramTypes;
 	}
 
 }

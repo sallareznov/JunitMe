@@ -58,14 +58,18 @@ public class AlloyToJavaParser {
 		// Get the command to execute. for example :
 		Command cmd = model.getAllCommands().get(0);
 		System.out.println(cmd);
-
+		
 		// Execute the model using the command obtained in step 2
 		A4Solution solution = TranslateAlloyToKodkod.execute_command(null, model.getAllReachableSigs(), cmd,
 				new A4Options());
 
 		int count = 0;
 		while (solution.satisfiable() && (count < max || max == -1)) {
-			System.out.println("Creating instance n_" + (++count) + (max != -1 ? " of " + max : ""));
+//			if (count % 1000 == 0) {
+				System.out.println("Creating instance n_" + (++count) + (max != -1 ? " of " + max : ""));
+//			}
+			
+//			count++;
 
 			// Prepare the string buffer.
 			StringBuilder sb = new StringBuilder();

@@ -5,7 +5,7 @@ public enum ASpecificationEnum {
 	RECEIVER_TYPE("receiverType"), TYPE("type"), RECEIVER("receiver"), PARAMS(
 			"params"), PARAM_TYPES("paramTypes"), METHOD("method"), METHODS(
 			"methods"), NEXT_METHOD("nextMethod"), POSITION("pos"), NEXT_PARAM(
-			"nextParam"), NEXT_PARAM_TYPE("nextParamType"), OBJECT("object");
+			"nextParam"), NEXT_PARAM_TYPE("nextParamType"), CONSTRUCTOR_CALL("constructor"), OBJECT("object");
 
 	private final String value;
 

@@ -1,0 +1,157 @@
+\subsection{Java to Alloy}
+\subsubsection{Generating Alloy source code}
+\paragraph{Base model}
+The base model is a meta-model, It is the base of the generated java to Alloy program.
+It is composed of four parts: Types, methods, methods constraints and methods arguments.
+
+\lstset{language=Alloy}
+
+\paragraph{Types} All types have a super-type: \textit{Type}. In addition, every object has a type and a constructor.
+\begin{lstlisting}
+abstract sig Type{
+}
+
+sig Object{
+    type : Type,
+    constructor : ConstructorCall
+}
+\end{lstlisting}
+
+\paragraph{Methods} A very important thing in order  to simulate an execution trace, is to have the trace of execution with successive methods calls and not only instances of objects of simple type declaration. Successive methods calls can be presented in a linked list, so later on, simply by getting the head of the list we can browse a gernerated instance and we will have an access to method calls. The following Alloy code represents how we have represented methods in Alloy model.
+
+\begin{lstlisting}
+sig ConstructorCall{
+    paramTypes: seq Type
+}
+
+abstract sig Call{
+}
+
+one sig End extends Call{
+}
+
+abstract sig CallWithNext extends Call{
+    nextMethod : Call
+}
+
+sig MethodCall extends CallWithNext{
+    receiver : Object,
+    method : Method,
+    params : seq Object
+}
+
+one sig Begin extends CallWithNext{
+}
+
+abstract sig Method {
+    paramTypes : seq Type,
+    receiverType : Type
+}
+\end{lstlisting}
+
+\paragraph{Constraints}
+Methods in every instance generated later on should respect numerous constraints, such like a method not being able to call itself. The following Alloy code represents the constraints used in the Alloy model. 
+
+\begin{lstlisting}
+------ Method Constraints-------
+
+-- There should be one and only method.next= end
+fact{
+    one m : MethodCall | m.nextMethod in End
+}
+
+-- Method call can't be linked to itself
+fact{
+    all mc : MethodCall | mc.nextMethod!=mc
+}
+
+-- Reciever has the right type
+fact{
+    all mc : MethodCall |  mc.receiver.type=mc.method.receiverType
+}
+
+-- Call can't be done twice
+fact{
+all mc: MethodCall | no mc2 : MethodCall |  (mc2 in mc.^nextMethod) && (mc2.nextMethod=mc)
+}
+
+-- All methods calls has been called
+fact{
+    all mc : MethodCall | one c : CallWithNext | c.nextMethod=mc
+}
+
+-- Object which calls a method has the right type
+fact{
+    all mc:MethodCall | mc.receiver.type=mc.method.receiverType
+}
+\end{lstlisting}
+\paragraph{Arguments} Primitve types has been included in the base model. All other used types in a given program are generated at runtime. 
+\begin{lstlisting}
+------- Param Constraints ------
+
+-- Types verification 
+fact{
+    all mc : MethodCall |validParam[mc.method,mc]
+}
+
+pred validParam[method : Method, call : MethodCall]{
+	call.params.type=method.paramTypes
+	#call.params=#method.paramTypes
+    all  pt : method.paramTypes.elems | all p : call.params.elems | call.params.idxOf[p]=method.paramTypes.idxOf[pt] implies pt=p.type
+}
+
+-------- Primitive Types ------------
+
+one sig Gen_Double extends Type{}
+one sig Gen_Integer extends Type{}
+one sig Gen_Float extends Type{}
+one sig Gen_Boolean extends Type{}
+one sig Gen_Byte extends Type{}
+one sig Gen_Character extends Type{}
+one sig Gen_Long extends Type{}
+one sig Gen_Short extends Type{}
+\end{lstlisting}
+
+\paragraph{Generating Alloy Code}
+To generate Alloy instances for an existing Java program we used Spoon(\ref{subsec:impl}). Spoon uses AST (Abstract syntax tree)\cite{ast} to browse the structure of a specified program. With informations collected in the AST, we are able to generate the code of Alloy program corresponding to the initial Java program. The generated code is then grafted to the base model.
+Result is a complet Alloy model inside the file FinalGen.als\\
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{Java source code}
+\KwResult{Alloy model}
+ \ForEach{class $c$}{
+		Modify the name of class from $package.class$ to $package\_class$\;
+		Add $ClassName$ as a type to Alloy file\;
+ 		\ForEach {method $m$ in $c$}{
+ 	Create method name as: $className\_MethodName\_NumberOflineInJavaFile$\;
+	Add a $Sig$ extending $Method\{\}$ representing the method $m$ into Alloy model\;	 		
+	Add to Alloy model number of method parameters as a $fact$\;
+	\ForEach{Parameter $p$ in $m$}{
+		Add to Alloy model the type of $p$ as a $fact$\;
+		}
+		Add to Alloy model the type of $receiver$ as a $fact$\;
+ 	  }
+ 	  \ForEach{Constructor $ct$ in $c$}{
+		 Add a $Sig$ extending $ConstructorCall\{\}$ representing the constructor $ct$ in	to Alloy model\;
+		 Add to Alloy model number of constructor parameters as a $fact$\;
+		 \ForEach{Parameter $p$ in $ct$}{
+		Add to Alloy model the type of $p$ as a $fact$\;
+		}	  
+ 	  }
+ 	}
+\caption{How to transfer Java code to Alloy model}
+\end{algorithm}
+\bigskip
+An example of the results output:
+\begin{lstlisting}
+sig package_myClass extends Type{}
+sig package_myClass_method_1 extends Method{}
+fact{
+  #package_myClass_method_1.params=3
+  package_myClass_method_1.param[0].type=typeArg1
+  package_myClass_method_1.param[1].type=typeArg2
+  package_myClass_method_1.param[2].type=typeArg3
+  package_myClass_method_1.receiverType=X
+}
+\end{lstlisting}

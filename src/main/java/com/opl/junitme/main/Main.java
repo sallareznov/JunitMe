@@ -41,11 +41,13 @@ public class Main {
 
 		// Generate unit test
 		JUnitTestClassGenerator jUnitTestClassGenerator = new JUnitTestClassGenerator(
-				"generatedClassTest", srcProgram);
+				"GeneratedClassTest", srcProgram);
+		jUnitTestClassGenerator.createBeforeClassMethod("__exceptions.log");
 		for (AlloyInstance alloyInstance : AlloyInstanceManager.getInstance()) {
 			jUnitTestClassGenerator.createTestMethod(alloyInstance
-					.getFirstMethodCall());
+					.getFirstMethodCall(), alloyInstance.getConstructorCalls());
 		}
+		jUnitTestClassGenerator.createAfterClassMethod();
 		jUnitTestClassGenerator.generateClass();
 	}
 

@@ -3,7 +3,7 @@ package com.opl.junitme.constants;
 public enum AModelEnum {
 
 	OBJECT("Object"), METHOD_CALL("MethodCall"), CALL_WITH_NEXT("CallWithNext"), BEGIN("Begin"), END("End"), METHOD(
-			"Method"), TYPE("Type"), PARAM_TYPE("ParamType"), PARAM("Param");
+			"Method"), TYPE("Type"), PARAM_TYPE("ParamType"), PARAM("Param"), CONSTRUCTOR_CALL("ConstructorCall");
 
 	private String value;
 

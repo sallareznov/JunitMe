@@ -1,196 +1,1809 @@
-one sig Mot_inverse_76 extends Method{}
+one sig ftp_FTPMain_usage_45 extends Method{}
 fact{
-#Mot_inverse_76.paramTypes=0
-Mot_inverse_76.receiverType=Mot
+#ftp_FTPMain_usage_45.paramTypes=0
+ftp_FTPMain_usage_45.receiverType=ftp_FTPMain
 }
 
-one sig Mot_extraitAvant_153 extends Method{}
+
+one sig ftp_client_FTPRequestHandler_sendData_61 extends Method{}
 fact{
-#Mot_extraitAvant_153.paramTypes=1
-Mot_extraitAvant_153.paramTypes[0]=Gen_Character
-Mot_extraitAvant_153.receiverType=Mot
+#ftp_client_FTPRequestHandler_sendData_61.paramTypes=2
+ftp_client_FTPRequestHandler_sendData_61.paramTypes[0]=java_net_Socket
+ftp_client_FTPRequestHandler_sendData_61.paramTypes[1]=java_lang_String
+ftp_client_FTPRequestHandler_sendData_61.receiverType=ftp_client_FTPRequestHandler
 }
 
-one sig Mot_contient_99 extends Method{}
+
+one sig ftp_client_FTPRequestHandler_getDatabase_29 extends Method{}
 fact{
-#Mot_contient_99.paramTypes=1
-Mot_contient_99.paramTypes[0]=Mot
-Mot_contient_99.receiverType=Mot
+#ftp_client_FTPRequestHandler_getDatabase_29.paramTypes=0
+ftp_client_FTPRequestHandler_getDatabase_29.receiverType=ftp_client_FTPRequestHandler
 }
 
-one sig Mot_equals_28 extends Method{}
+
+one sig ftp_client_FTPRequestHandler_processRequest_72 extends Method{}
 fact{
-#Mot_equals_28.paramTypes=1
-Mot_equals_28.paramTypes[0]=java_lang_Object
-Mot_equals_28.receiverType=Mot
+#ftp_client_FTPRequestHandler_processRequest_72.paramTypes=1
+ftp_client_FTPRequestHandler_processRequest_72.paramTypes[0]=ftp_shared_FTPRequest
+ftp_client_FTPRequestHandler_processRequest_72.receiverType=ftp_client_FTPRequestHandler
 }
 
-one sig Mot_estAnagramme_128 extends Method{}
+
+one sig ftp_client_FTPRequestHandler_run_45 extends Method{}
 fact{
-#Mot_estAnagramme_128.paramTypes=1
-Mot_estAnagramme_128.paramTypes[0]=Mot
-Mot_estAnagramme_128.receiverType=Mot
+#ftp_client_FTPRequestHandler_run_45.paramTypes=0
+ftp_client_FTPRequestHandler_run_45.receiverType=ftp_client_FTPRequestHandler
 }
 
-one sig Mot_estNomPropre_118 extends Method{}
+
+one sig ftp_client_FTPRequestHandler_init1_36 extends ConstructorCall{}
 fact{
-#Mot_estNomPropre_118.paramTypes=0
-Mot_estNomPropre_118.receiverType=Mot
+#ftp_client_FTPRequestHandler_init1_36.paramTypes=3
+ftp_client_FTPRequestHandler_init1_36.paramTypes[0]=ftp_shared_FTPDatabase
+ftp_client_FTPRequestHandler_init1_36.paramTypes[1]=ftp_shared_FTPServerConfiguration
+ftp_client_FTPRequestHandler_init1_36.paramTypes[2]=ftp_server_command_FTPCommandManager
 }
 
-one sig Mot_estPalindrome_89 extends Method{}
+
+one sig ftp_server_FTPServer_sendData_61 extends Method{}
 fact{
-#Mot_estPalindrome_89.paramTypes=0
-Mot_estPalindrome_89.receiverType=Mot
+#ftp_server_FTPServer_sendData_61.paramTypes=2
+ftp_server_FTPServer_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_FTPServer_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_FTPServer_sendData_61.receiverType=ftp_server_FTPServer
 }
 
-one sig Mot_rimeAvec_109 extends Method{}
+
+one sig ftp_server_FTPServer_getConfiguration_36 extends Method{}
 fact{
-#Mot_rimeAvec_109.paramTypes=1
-Mot_rimeAvec_109.paramTypes[0]=Mot
-Mot_rimeAvec_109.receiverType=Mot
+#ftp_server_FTPServer_getConfiguration_36.paramTypes=0
+ftp_server_FTPServer_getConfiguration_36.receiverType=ftp_server_FTPServer
 }
 
-one sig Mot_longueur_43 extends Method{}
+
+one sig ftp_server_FTPServer_connectToClient_44 extends Method{}
 fact{
-#Mot_longueur_43.paramTypes=0
-Mot_longueur_43.receiverType=Mot
+#ftp_server_FTPServer_connectToClient_44.paramTypes=0
+ftp_server_FTPServer_connectToClient_44.receiverType=ftp_server_FTPServer
 }
 
-one sig Mot_nbOccurrencesOfChar_62 extends Method{}
+
+one sig ftp_server_FTPServer_getDatabase_29 extends Method{}
 fact{
-#Mot_nbOccurrencesOfChar_62.paramTypes=1
-Mot_nbOccurrencesOfChar_62.paramTypes[0]=Gen_Character
-Mot_nbOccurrencesOfChar_62.receiverType=Mot
+#ftp_server_FTPServer_getDatabase_29.paramTypes=0
+ftp_server_FTPServer_getDatabase_29.receiverType=ftp_server_FTPServer
 }
 
-one sig Mot_toString_52 extends Method{}
+
+one sig ftp_server_FTPServer_close_54 extends Method{}
 fact{
-#Mot_toString_52.paramTypes=0
-Mot_toString_52.receiverType=Mot
+#ftp_server_FTPServer_close_54.paramTypes=0
+ftp_server_FTPServer_close_54.receiverType=ftp_server_FTPServer
 }
 
-one sig Mot_main_177 extends Method{}
+
+one sig ftp_server_FTPServer_init1_28 extends ConstructorCall{}
 fact{
-#Mot_main_177.paramTypes=1
-Mot_main_177.paramTypes[0]=java_lang_String_array
-Mot_main_177.receiverType=Mot
+#ftp_server_FTPServer_init1_28.paramTypes=3
+ftp_server_FTPServer_init1_28.paramTypes[0]=Gen_Integer
+ftp_server_FTPServer_init1_28.paramTypes[1]=java_lang_String
+ftp_server_FTPServer_init1_28.paramTypes[2]=ftp_shared_FTPDatabase
 }
 
-one sig MotTest_suite_132 extends Method{}
+
+one sig ftp_server_command_FTPCdupCommand_checkConnection_50 extends Method{}
 fact{
-#MotTest_suite_132.paramTypes=0
-MotTest_suite_132.receiverType=MotTest
+#ftp_server_command_FTPCdupCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPCdupCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPCdupCommand_checkConnection_50.receiverType=ftp_server_command_FTPCdupCommand
 }
 
-one sig MotTest_testContient_41 extends Method{}
+
+one sig ftp_server_command_FTPCdupCommand_accept_36 extends Method{}
 fact{
-#MotTest_testContient_41.paramTypes=0
-MotTest_testContient_41.receiverType=MotTest
+#ftp_server_command_FTPCdupCommand_accept_36.paramTypes=1
+ftp_server_command_FTPCdupCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPCdupCommand_accept_36.receiverType=ftp_server_command_FTPCdupCommand
 }
 
-one sig MotTest_testEquals_7 extends Method{}
+
+one sig ftp_server_command_FTPCdupCommand_sendData_61 extends Method{}
 fact{
-#MotTest_testEquals_7.paramTypes=0
-MotTest_testEquals_7.receiverType=MotTest
+#ftp_server_command_FTPCdupCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPCdupCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPCdupCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPCdupCommand_sendData_61.receiverType=ftp_server_command_FTPCdupCommand
 }
 
-one sig MotTest_testEstAnagramme_107 extends Method{}
+
+one sig ftp_server_command_FTPCdupCommand_getDatabase_29 extends Method{}
 fact{
-#MotTest_testEstAnagramme_107.paramTypes=0
-MotTest_testEstAnagramme_107.receiverType=MotTest
+#ftp_server_command_FTPCdupCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPCdupCommand_getDatabase_29.receiverType=ftp_server_command_FTPCdupCommand
 }
 
-one sig MotTest_testEstNomPropre_120 extends Method{}
+
+one sig ftp_server_command_FTPCdupCommand_isValid_24 extends Method{}
 fact{
-#MotTest_testEstNomPropre_120.paramTypes=0
-MotTest_testEstNomPropre_120.receiverType=MotTest
+#ftp_server_command_FTPCdupCommand_isValid_24.paramTypes=1
+ftp_server_command_FTPCdupCommand_isValid_24.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPCdupCommand_isValid_24.receiverType=ftp_server_command_FTPCdupCommand
 }
 
-one sig MotTest_testEstPalindrome_95 extends Method{}
+
+one sig ftp_server_command_FTPCdupCommand_executeValidCommand_25 extends Method{}
 fact{
-#MotTest_testEstPalindrome_95.paramTypes=0
-MotTest_testEstPalindrome_95.receiverType=MotTest
+#ftp_server_command_FTPCdupCommand_executeValidCommand_25.paramTypes=2
+ftp_server_command_FTPCdupCommand_executeValidCommand_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPCdupCommand_executeValidCommand_25.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPCdupCommand_executeValidCommand_25.receiverType=ftp_server_command_FTPCdupCommand
 }
 
-one sig MotTest_testExtraitAvant_72 extends Method{}
+
+one sig ftp_server_command_FTPCdupCommand_getName_31 extends Method{}
 fact{
-#MotTest_testExtraitAvant_72.paramTypes=0
-MotTest_testExtraitAvant_72.receiverType=MotTest
+#ftp_server_command_FTPCdupCommand_getName_31.paramTypes=0
+ftp_server_command_FTPCdupCommand_getName_31.receiverType=ftp_server_command_FTPCdupCommand
 }
 
-one sig MotTest_testInverse_33 extends Method{}
+
+one sig ftp_server_command_FTPCdupCommand_execute_59 extends Method{}
 fact{
-#MotTest_testInverse_33.paramTypes=0
-MotTest_testInverse_33.receiverType=MotTest
+#ftp_server_command_FTPCdupCommand_execute_59.paramTypes=2
+ftp_server_command_FTPCdupCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPCdupCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPCdupCommand_execute_59.receiverType=ftp_server_command_FTPCdupCommand
 }
 
-one sig MotTest_testLongueur_18 extends Method{}
+
+one sig ftp_server_command_FTPCdupCommand_executeConnectionNeededCommand_29 extends Method{}
 fact{
-#MotTest_testLongueur_18.paramTypes=0
-MotTest_testLongueur_18.receiverType=MotTest
+#ftp_server_command_FTPCdupCommand_executeConnectionNeededCommand_29.paramTypes=2
+ftp_server_command_FTPCdupCommand_executeConnectionNeededCommand_29.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPCdupCommand_executeConnectionNeededCommand_29.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPCdupCommand_executeConnectionNeededCommand_29.receiverType=ftp_server_command_FTPCdupCommand
 }
 
-one sig MotTest_testNbOccurencesOfChar_25 extends Method{}
+
+one sig ftp_server_command_FTPCdupCommand_init1_19 extends ConstructorCall{}
 fact{
-#MotTest_testNbOccurencesOfChar_25.paramTypes=0
-MotTest_testNbOccurencesOfChar_25.receiverType=MotTest
+#ftp_server_command_FTPCdupCommand_init1_19.paramTypes=1
+ftp_server_command_FTPCdupCommand_init1_19.paramTypes[0]=ftp_shared_FTPDatabase
 }
 
-one sig MotTest_testRimeAvec_58 extends Method{}
+
+one sig ftp_server_command_FTPCommandManager_addCommand_31 extends Method{}
 fact{
-#MotTest_testRimeAvec_58.paramTypes=0
-MotTest_testRimeAvec_58.receiverType=MotTest
+#ftp_server_command_FTPCommandManager_addCommand_31.paramTypes=1
+ftp_server_command_FTPCommandManager_addCommand_31.paramTypes[0]=ftp_server_command_FTPCommand
+ftp_server_command_FTPCommandManager_addCommand_31.receiverType=ftp_server_command_FTPCommandManager
 }
 
-one sig MotTest1_suite_21 extends Method{}
+
+one sig ftp_server_command_FTPCommandManager_handle_44 extends Method{}
 fact{
-#MotTest1_suite_21.paramTypes=0
-MotTest1_suite_21.receiverType=MotTest1
+#ftp_server_command_FTPCommandManager_handle_44.paramTypes=2
+ftp_server_command_FTPCommandManager_handle_44.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPCommandManager_handle_44.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPCommandManager_handle_44.receiverType=ftp_server_command_FTPCommandManager
 }
 
-one sig MotTest1_testEquals_8 extends Method{}
+
+one sig ftp_server_command_FTPCommandManager_init1_21 extends ConstructorCall{}
 fact{
-#MotTest1_testEquals_8.paramTypes=0
-MotTest1_testEquals_8.receiverType=MotTest1
+#ftp_server_command_FTPCommandManager_init1_21.paramTypes=0
 }
 
-one sig Stock_getQuantite_22 extends Method{}
+
+one sig ftp_server_command_FTPCwdCommand_checkConnection_50 extends Method{}
 fact{
-#Stock_getQuantite_22.paramTypes=0
-Stock_getQuantite_22.receiverType=Stock
+#ftp_server_command_FTPCwdCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPCwdCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPCwdCommand_checkConnection_50.receiverType=ftp_server_command_FTPCwdCommand
 }
 
-one sig Stock_retire_31 extends Method{}
+
+one sig ftp_server_command_FTPCwdCommand_accept_36 extends Method{}
 fact{
-#Stock_retire_31.paramTypes=1
-Stock_retire_31.paramTypes[0]=Gen_Integer
-Stock_retire_31.receiverType=Stock
+#ftp_server_command_FTPCwdCommand_accept_36.paramTypes=1
+ftp_server_command_FTPCwdCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPCwdCommand_accept_36.receiverType=ftp_server_command_FTPCwdCommand
 }
 
-one sig Stock_toString_50 extends Method{}
+
+one sig ftp_server_command_FTPCwdCommand_sendData_61 extends Method{}
 fact{
-#Stock_toString_50.paramTypes=0
-Stock_toString_50.receiverType=Stock
+#ftp_server_command_FTPCwdCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPCwdCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPCwdCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPCwdCommand_sendData_61.receiverType=ftp_server_command_FTPCwdCommand
 }
 
-one sig Stock_ajoute_46 extends Method{}
+
+one sig ftp_server_command_FTPCwdCommand_getDatabase_29 extends Method{}
 fact{
-#Stock_ajoute_46.paramTypes=1
-Stock_ajoute_46.paramTypes[0]=Gen_Integer
-Stock_ajoute_46.receiverType=Stock
+#ftp_server_command_FTPCwdCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPCwdCommand_getDatabase_29.receiverType=ftp_server_command_FTPCwdCommand
 }
 
-one sig Stock_main_54 extends Method{}
+
+one sig ftp_server_command_FTPCwdCommand_isValid_29 extends Method{}
 fact{
-#Stock_main_54.paramTypes=1
-Stock_main_54.paramTypes[0]=java_lang_String_array
-Stock_main_54.receiverType=Stock
+#ftp_server_command_FTPCwdCommand_isValid_29.paramTypes=1
+ftp_server_command_FTPCwdCommand_isValid_29.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPCwdCommand_isValid_29.receiverType=ftp_server_command_FTPCwdCommand
 }
 
-one sig MotTest extends Type{}
-one sig MotTest1 extends Type{}
-one sig Mot extends Type{}
-one sig java_lang_String_array extends Type{}
-one sig java_lang_Object extends Type{}
-one sig Stock extends Type{}
+
+one sig ftp_server_command_FTPCwdCommand_executeValidCommand_25 extends Method{}
+fact{
+#ftp_server_command_FTPCwdCommand_executeValidCommand_25.paramTypes=2
+ftp_server_command_FTPCwdCommand_executeValidCommand_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPCwdCommand_executeValidCommand_25.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPCwdCommand_executeValidCommand_25.receiverType=ftp_server_command_FTPCwdCommand
+}
+
+
+one sig ftp_server_command_FTPCwdCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPCwdCommand_getName_31.paramTypes=0
+ftp_server_command_FTPCwdCommand_getName_31.receiverType=ftp_server_command_FTPCwdCommand
+}
+
+
+one sig ftp_server_command_FTPCwdCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPCwdCommand_execute_59.paramTypes=2
+ftp_server_command_FTPCwdCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPCwdCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPCwdCommand_execute_59.receiverType=ftp_server_command_FTPCwdCommand
+}
+
+
+one sig ftp_server_command_FTPCwdCommand_executeConnectionNeededCommand_49 extends Method{}
+fact{
+#ftp_server_command_FTPCwdCommand_executeConnectionNeededCommand_49.paramTypes=2
+ftp_server_command_FTPCwdCommand_executeConnectionNeededCommand_49.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPCwdCommand_executeConnectionNeededCommand_49.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPCwdCommand_executeConnectionNeededCommand_49.receiverType=ftp_server_command_FTPCwdCommand
+}
+
+
+one sig ftp_server_command_FTPCwdCommand_init1_24 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPCwdCommand_init1_24.paramTypes=1
+ftp_server_command_FTPCwdCommand_init1_24.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPDeleCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPDeleCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPDeleCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPDeleCommand_checkConnection_50.receiverType=ftp_server_command_FTPDeleCommand
+}
+
+
+one sig ftp_server_command_FTPDeleCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPDeleCommand_accept_36.paramTypes=1
+ftp_server_command_FTPDeleCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPDeleCommand_accept_36.receiverType=ftp_server_command_FTPDeleCommand
+}
+
+
+one sig ftp_server_command_FTPDeleCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPDeleCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPDeleCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPDeleCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPDeleCommand_sendData_61.receiverType=ftp_server_command_FTPDeleCommand
+}
+
+
+one sig ftp_server_command_FTPDeleCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPDeleCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPDeleCommand_getDatabase_29.receiverType=ftp_server_command_FTPDeleCommand
+}
+
+
+one sig ftp_server_command_FTPDeleCommand_isValid_26 extends Method{}
+fact{
+#ftp_server_command_FTPDeleCommand_isValid_26.paramTypes=1
+ftp_server_command_FTPDeleCommand_isValid_26.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPDeleCommand_isValid_26.receiverType=ftp_server_command_FTPDeleCommand
+}
+
+
+one sig ftp_server_command_FTPDeleCommand_executeValidCommand_25 extends Method{}
+fact{
+#ftp_server_command_FTPDeleCommand_executeValidCommand_25.paramTypes=2
+ftp_server_command_FTPDeleCommand_executeValidCommand_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPDeleCommand_executeValidCommand_25.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPDeleCommand_executeValidCommand_25.receiverType=ftp_server_command_FTPDeleCommand
+}
+
+
+one sig ftp_server_command_FTPDeleCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPDeleCommand_getName_31.paramTypes=0
+ftp_server_command_FTPDeleCommand_getName_31.receiverType=ftp_server_command_FTPDeleCommand
+}
+
+
+one sig ftp_server_command_FTPDeleCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPDeleCommand_execute_59.paramTypes=2
+ftp_server_command_FTPDeleCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPDeleCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPDeleCommand_execute_59.receiverType=ftp_server_command_FTPDeleCommand
+}
+
+
+one sig ftp_server_command_FTPDeleCommand_executeConnectionNeededCommand_31 extends Method{}
+fact{
+#ftp_server_command_FTPDeleCommand_executeConnectionNeededCommand_31.paramTypes=2
+ftp_server_command_FTPDeleCommand_executeConnectionNeededCommand_31.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPDeleCommand_executeConnectionNeededCommand_31.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPDeleCommand_executeConnectionNeededCommand_31.receiverType=ftp_server_command_FTPDeleCommand
+}
+
+
+one sig ftp_server_command_FTPDeleCommand_init1_21 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPDeleCommand_init1_21.paramTypes=1
+ftp_server_command_FTPDeleCommand_init1_21.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPEprtCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPEprtCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPEprtCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPEprtCommand_checkConnection_50.receiverType=ftp_server_command_FTPEprtCommand
+}
+
+
+one sig ftp_server_command_FTPEprtCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPEprtCommand_accept_36.paramTypes=1
+ftp_server_command_FTPEprtCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPEprtCommand_accept_36.receiverType=ftp_server_command_FTPEprtCommand
+}
+
+
+one sig ftp_server_command_FTPEprtCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPEprtCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPEprtCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPEprtCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPEprtCommand_sendData_61.receiverType=ftp_server_command_FTPEprtCommand
+}
+
+
+one sig ftp_server_command_FTPEprtCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPEprtCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPEprtCommand_getDatabase_29.receiverType=ftp_server_command_FTPEprtCommand
+}
+
+
+one sig ftp_server_command_FTPEprtCommand_isValid_26 extends Method{}
+fact{
+#ftp_server_command_FTPEprtCommand_isValid_26.paramTypes=1
+ftp_server_command_FTPEprtCommand_isValid_26.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPEprtCommand_isValid_26.receiverType=ftp_server_command_FTPEprtCommand
+}
+
+
+one sig ftp_server_command_FTPEprtCommand_executeValidCommand_25 extends Method{}
+fact{
+#ftp_server_command_FTPEprtCommand_executeValidCommand_25.paramTypes=2
+ftp_server_command_FTPEprtCommand_executeValidCommand_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPEprtCommand_executeValidCommand_25.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPEprtCommand_executeValidCommand_25.receiverType=ftp_server_command_FTPEprtCommand
+}
+
+
+one sig ftp_server_command_FTPEprtCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPEprtCommand_getName_31.paramTypes=0
+ftp_server_command_FTPEprtCommand_getName_31.receiverType=ftp_server_command_FTPEprtCommand
+}
+
+
+one sig ftp_server_command_FTPEprtCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPEprtCommand_execute_59.paramTypes=2
+ftp_server_command_FTPEprtCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPEprtCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPEprtCommand_execute_59.receiverType=ftp_server_command_FTPEprtCommand
+}
+
+
+one sig ftp_server_command_FTPEprtCommand_executeConnectionNeededCommand_31 extends Method{}
+fact{
+#ftp_server_command_FTPEprtCommand_executeConnectionNeededCommand_31.paramTypes=2
+ftp_server_command_FTPEprtCommand_executeConnectionNeededCommand_31.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPEprtCommand_executeConnectionNeededCommand_31.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPEprtCommand_executeConnectionNeededCommand_31.receiverType=ftp_server_command_FTPEprtCommand
+}
+
+
+one sig ftp_server_command_FTPEprtCommand_init1_21 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPEprtCommand_init1_21.paramTypes=1
+ftp_server_command_FTPEprtCommand_init1_21.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPEpsvCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPEpsvCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPEpsvCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPEpsvCommand_checkConnection_50.receiverType=ftp_server_command_FTPEpsvCommand
+}
+
+
+one sig ftp_server_command_FTPEpsvCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPEpsvCommand_accept_36.paramTypes=1
+ftp_server_command_FTPEpsvCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPEpsvCommand_accept_36.receiverType=ftp_server_command_FTPEpsvCommand
+}
+
+
+one sig ftp_server_command_FTPEpsvCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPEpsvCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPEpsvCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPEpsvCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPEpsvCommand_sendData_61.receiverType=ftp_server_command_FTPEpsvCommand
+}
+
+
+one sig ftp_server_command_FTPEpsvCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPEpsvCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPEpsvCommand_getDatabase_29.receiverType=ftp_server_command_FTPEpsvCommand
+}
+
+
+one sig ftp_server_command_FTPEpsvCommand_isValid_25 extends Method{}
+fact{
+#ftp_server_command_FTPEpsvCommand_isValid_25.paramTypes=1
+ftp_server_command_FTPEpsvCommand_isValid_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPEpsvCommand_isValid_25.receiverType=ftp_server_command_FTPEpsvCommand
+}
+
+
+one sig ftp_server_command_FTPEpsvCommand_executeValidCommand_25 extends Method{}
+fact{
+#ftp_server_command_FTPEpsvCommand_executeValidCommand_25.paramTypes=2
+ftp_server_command_FTPEpsvCommand_executeValidCommand_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPEpsvCommand_executeValidCommand_25.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPEpsvCommand_executeValidCommand_25.receiverType=ftp_server_command_FTPEpsvCommand
+}
+
+
+one sig ftp_server_command_FTPEpsvCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPEpsvCommand_getName_31.paramTypes=0
+ftp_server_command_FTPEpsvCommand_getName_31.receiverType=ftp_server_command_FTPEpsvCommand
+}
+
+
+one sig ftp_server_command_FTPEpsvCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPEpsvCommand_execute_59.paramTypes=2
+ftp_server_command_FTPEpsvCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPEpsvCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPEpsvCommand_execute_59.receiverType=ftp_server_command_FTPEpsvCommand
+}
+
+
+one sig ftp_server_command_FTPEpsvCommand_executeConnectionNeededCommand_30 extends Method{}
+fact{
+#ftp_server_command_FTPEpsvCommand_executeConnectionNeededCommand_30.paramTypes=2
+ftp_server_command_FTPEpsvCommand_executeConnectionNeededCommand_30.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPEpsvCommand_executeConnectionNeededCommand_30.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPEpsvCommand_executeConnectionNeededCommand_30.receiverType=ftp_server_command_FTPEpsvCommand
+}
+
+
+one sig ftp_server_command_FTPEpsvCommand_init1_20 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPEpsvCommand_init1_20.paramTypes=1
+ftp_server_command_FTPEpsvCommand_init1_20.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPListCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPListCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPListCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPListCommand_checkConnection_50.receiverType=ftp_server_command_FTPListCommand
+}
+
+
+one sig ftp_server_command_FTPListCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPListCommand_accept_36.paramTypes=1
+ftp_server_command_FTPListCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPListCommand_accept_36.receiverType=ftp_server_command_FTPListCommand
+}
+
+
+one sig ftp_server_command_FTPListCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPListCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPListCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPListCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPListCommand_sendData_61.receiverType=ftp_server_command_FTPListCommand
+}
+
+
+one sig ftp_server_command_FTPListCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPListCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPListCommand_getDatabase_29.receiverType=ftp_server_command_FTPListCommand
+}
+
+
+one sig ftp_server_command_FTPListCommand_isValid_33 extends Method{}
+fact{
+#ftp_server_command_FTPListCommand_isValid_33.paramTypes=1
+ftp_server_command_FTPListCommand_isValid_33.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPListCommand_isValid_33.receiverType=ftp_server_command_FTPListCommand
+}
+
+
+one sig ftp_server_command_FTPListCommand_executeValidCommand_25 extends Method{}
+fact{
+#ftp_server_command_FTPListCommand_executeValidCommand_25.paramTypes=2
+ftp_server_command_FTPListCommand_executeValidCommand_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPListCommand_executeValidCommand_25.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPListCommand_executeValidCommand_25.receiverType=ftp_server_command_FTPListCommand
+}
+
+
+one sig ftp_server_command_FTPListCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPListCommand_getName_31.paramTypes=0
+ftp_server_command_FTPListCommand_getName_31.receiverType=ftp_server_command_FTPListCommand
+}
+
+
+one sig ftp_server_command_FTPListCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPListCommand_execute_59.paramTypes=2
+ftp_server_command_FTPListCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPListCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPListCommand_execute_59.receiverType=ftp_server_command_FTPListCommand
+}
+
+
+one sig ftp_server_command_FTPListCommand_executeConnectionNeededCommand_59 extends Method{}
+fact{
+#ftp_server_command_FTPListCommand_executeConnectionNeededCommand_59.paramTypes=2
+ftp_server_command_FTPListCommand_executeConnectionNeededCommand_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPListCommand_executeConnectionNeededCommand_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPListCommand_executeConnectionNeededCommand_59.receiverType=ftp_server_command_FTPListCommand
+}
+
+
+one sig ftp_server_command_FTPListCommand_init1_28 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPListCommand_init1_28.paramTypes=1
+ftp_server_command_FTPListCommand_init1_28.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPNlstCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPNlstCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPNlstCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPNlstCommand_checkConnection_50.receiverType=ftp_server_command_FTPNlstCommand
+}
+
+
+one sig ftp_server_command_FTPNlstCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPNlstCommand_accept_36.paramTypes=1
+ftp_server_command_FTPNlstCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPNlstCommand_accept_36.receiverType=ftp_server_command_FTPNlstCommand
+}
+
+
+one sig ftp_server_command_FTPNlstCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPNlstCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPNlstCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPNlstCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPNlstCommand_sendData_61.receiverType=ftp_server_command_FTPNlstCommand
+}
+
+
+one sig ftp_server_command_FTPNlstCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPNlstCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPNlstCommand_getDatabase_29.receiverType=ftp_server_command_FTPNlstCommand
+}
+
+
+one sig ftp_server_command_FTPNlstCommand_isValid_26 extends Method{}
+fact{
+#ftp_server_command_FTPNlstCommand_isValid_26.paramTypes=1
+ftp_server_command_FTPNlstCommand_isValid_26.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPNlstCommand_isValid_26.receiverType=ftp_server_command_FTPNlstCommand
+}
+
+
+one sig ftp_server_command_FTPNlstCommand_executeValidCommand_25 extends Method{}
+fact{
+#ftp_server_command_FTPNlstCommand_executeValidCommand_25.paramTypes=2
+ftp_server_command_FTPNlstCommand_executeValidCommand_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPNlstCommand_executeValidCommand_25.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPNlstCommand_executeValidCommand_25.receiverType=ftp_server_command_FTPNlstCommand
+}
+
+
+one sig ftp_server_command_FTPNlstCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPNlstCommand_getName_31.paramTypes=0
+ftp_server_command_FTPNlstCommand_getName_31.receiverType=ftp_server_command_FTPNlstCommand
+}
+
+
+one sig ftp_server_command_FTPNlstCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPNlstCommand_execute_59.paramTypes=2
+ftp_server_command_FTPNlstCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPNlstCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPNlstCommand_execute_59.receiverType=ftp_server_command_FTPNlstCommand
+}
+
+
+one sig ftp_server_command_FTPNlstCommand_executeConnectionNeededCommand_47 extends Method{}
+fact{
+#ftp_server_command_FTPNlstCommand_executeConnectionNeededCommand_47.paramTypes=2
+ftp_server_command_FTPNlstCommand_executeConnectionNeededCommand_47.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPNlstCommand_executeConnectionNeededCommand_47.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPNlstCommand_executeConnectionNeededCommand_47.receiverType=ftp_server_command_FTPNlstCommand
+}
+
+
+one sig ftp_server_command_FTPNlstCommand_init1_21 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPNlstCommand_init1_21.paramTypes=1
+ftp_server_command_FTPNlstCommand_init1_21.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPNotImplementedCommand_accept_26 extends Method{}
+fact{
+#ftp_server_command_FTPNotImplementedCommand_accept_26.paramTypes=1
+ftp_server_command_FTPNotImplementedCommand_accept_26.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPNotImplementedCommand_accept_26.receiverType=ftp_server_command_FTPNotImplementedCommand
+}
+
+
+one sig ftp_server_command_FTPNotImplementedCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPNotImplementedCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPNotImplementedCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPNotImplementedCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPNotImplementedCommand_sendData_61.receiverType=ftp_server_command_FTPNotImplementedCommand
+}
+
+
+one sig ftp_server_command_FTPNotImplementedCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPNotImplementedCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPNotImplementedCommand_getDatabase_29.receiverType=ftp_server_command_FTPNotImplementedCommand
+}
+
+
+one sig ftp_server_command_FTPNotImplementedCommand_isValid_31 extends Method{}
+fact{
+#ftp_server_command_FTPNotImplementedCommand_isValid_31.paramTypes=1
+ftp_server_command_FTPNotImplementedCommand_isValid_31.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPNotImplementedCommand_isValid_31.receiverType=ftp_server_command_FTPNotImplementedCommand
+}
+
+
+one sig ftp_server_command_FTPNotImplementedCommand_execute_36 extends Method{}
+fact{
+#ftp_server_command_FTPNotImplementedCommand_execute_36.paramTypes=2
+ftp_server_command_FTPNotImplementedCommand_execute_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPNotImplementedCommand_execute_36.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPNotImplementedCommand_execute_36.receiverType=ftp_server_command_FTPNotImplementedCommand
+}
+
+
+one sig ftp_server_command_FTPNotImplementedCommand_init1_21 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPNotImplementedCommand_init1_21.paramTypes=1
+ftp_server_command_FTPNotImplementedCommand_init1_21.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPPassCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPPassCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPPassCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPassCommand_checkConnection_50.receiverType=ftp_server_command_FTPPassCommand
+}
+
+
+one sig ftp_server_command_FTPPassCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPPassCommand_accept_36.paramTypes=1
+ftp_server_command_FTPPassCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPassCommand_accept_36.receiverType=ftp_server_command_FTPPassCommand
+}
+
+
+one sig ftp_server_command_FTPPassCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPPassCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPPassCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPPassCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPPassCommand_sendData_61.receiverType=ftp_server_command_FTPPassCommand
+}
+
+
+one sig ftp_server_command_FTPPassCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPPassCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPPassCommand_getDatabase_29.receiverType=ftp_server_command_FTPPassCommand
+}
+
+
+one sig ftp_server_command_FTPPassCommand_isValid_24 extends Method{}
+fact{
+#ftp_server_command_FTPPassCommand_isValid_24.paramTypes=1
+ftp_server_command_FTPPassCommand_isValid_24.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPassCommand_isValid_24.receiverType=ftp_server_command_FTPPassCommand
+}
+
+
+one sig ftp_server_command_FTPPassCommand_executeValidCommand_29 extends Method{}
+fact{
+#ftp_server_command_FTPPassCommand_executeValidCommand_29.paramTypes=2
+ftp_server_command_FTPPassCommand_executeValidCommand_29.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPassCommand_executeValidCommand_29.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPassCommand_executeValidCommand_29.receiverType=ftp_server_command_FTPPassCommand
+}
+
+
+one sig ftp_server_command_FTPPassCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPPassCommand_getName_31.paramTypes=0
+ftp_server_command_FTPPassCommand_getName_31.receiverType=ftp_server_command_FTPPassCommand
+}
+
+
+one sig ftp_server_command_FTPPassCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPPassCommand_execute_59.paramTypes=2
+ftp_server_command_FTPPassCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPassCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPassCommand_execute_59.receiverType=ftp_server_command_FTPPassCommand
+}
+
+
+one sig ftp_server_command_FTPPassCommand_init1_19 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPPassCommand_init1_19.paramTypes=1
+ftp_server_command_FTPPassCommand_init1_19.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPPasvCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPPasvCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPPasvCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPasvCommand_checkConnection_50.receiverType=ftp_server_command_FTPPasvCommand
+}
+
+
+one sig ftp_server_command_FTPPasvCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPPasvCommand_accept_36.paramTypes=1
+ftp_server_command_FTPPasvCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPasvCommand_accept_36.receiverType=ftp_server_command_FTPPasvCommand
+}
+
+
+one sig ftp_server_command_FTPPasvCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPPasvCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPPasvCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPPasvCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPPasvCommand_sendData_61.receiverType=ftp_server_command_FTPPasvCommand
+}
+
+
+one sig ftp_server_command_FTPPasvCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPPasvCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPPasvCommand_getDatabase_29.receiverType=ftp_server_command_FTPPasvCommand
+}
+
+
+one sig ftp_server_command_FTPPasvCommand_isValid_27 extends Method{}
+fact{
+#ftp_server_command_FTPPasvCommand_isValid_27.paramTypes=1
+ftp_server_command_FTPPasvCommand_isValid_27.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPasvCommand_isValid_27.receiverType=ftp_server_command_FTPPasvCommand
+}
+
+
+one sig ftp_server_command_FTPPasvCommand_executeValidCommand_25 extends Method{}
+fact{
+#ftp_server_command_FTPPasvCommand_executeValidCommand_25.paramTypes=2
+ftp_server_command_FTPPasvCommand_executeValidCommand_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPasvCommand_executeValidCommand_25.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPasvCommand_executeValidCommand_25.receiverType=ftp_server_command_FTPPasvCommand
+}
+
+
+one sig ftp_server_command_FTPPasvCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPPasvCommand_getName_31.paramTypes=0
+ftp_server_command_FTPPasvCommand_getName_31.receiverType=ftp_server_command_FTPPasvCommand
+}
+
+
+one sig ftp_server_command_FTPPasvCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPPasvCommand_execute_59.paramTypes=2
+ftp_server_command_FTPPasvCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPasvCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPasvCommand_execute_59.receiverType=ftp_server_command_FTPPasvCommand
+}
+
+
+one sig ftp_server_command_FTPPasvCommand_executeConnectionNeededCommand_32 extends Method{}
+fact{
+#ftp_server_command_FTPPasvCommand_executeConnectionNeededCommand_32.paramTypes=2
+ftp_server_command_FTPPasvCommand_executeConnectionNeededCommand_32.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPasvCommand_executeConnectionNeededCommand_32.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPasvCommand_executeConnectionNeededCommand_32.receiverType=ftp_server_command_FTPPasvCommand
+}
+
+
+one sig ftp_server_command_FTPPasvCommand_init1_22 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPPasvCommand_init1_22.paramTypes=1
+ftp_server_command_FTPPasvCommand_init1_22.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPPortCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPPortCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPPortCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPortCommand_checkConnection_50.receiverType=ftp_server_command_FTPPortCommand
+}
+
+
+one sig ftp_server_command_FTPPortCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPPortCommand_accept_36.paramTypes=1
+ftp_server_command_FTPPortCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPortCommand_accept_36.receiverType=ftp_server_command_FTPPortCommand
+}
+
+
+one sig ftp_server_command_FTPPortCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPPortCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPPortCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPPortCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPPortCommand_sendData_61.receiverType=ftp_server_command_FTPPortCommand
+}
+
+
+one sig ftp_server_command_FTPPortCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPPortCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPPortCommand_getDatabase_29.receiverType=ftp_server_command_FTPPortCommand
+}
+
+
+one sig ftp_server_command_FTPPortCommand_isValid_26 extends Method{}
+fact{
+#ftp_server_command_FTPPortCommand_isValid_26.paramTypes=1
+ftp_server_command_FTPPortCommand_isValid_26.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPortCommand_isValid_26.receiverType=ftp_server_command_FTPPortCommand
+}
+
+
+one sig ftp_server_command_FTPPortCommand_executeValidCommand_25 extends Method{}
+fact{
+#ftp_server_command_FTPPortCommand_executeValidCommand_25.paramTypes=2
+ftp_server_command_FTPPortCommand_executeValidCommand_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPortCommand_executeValidCommand_25.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPortCommand_executeValidCommand_25.receiverType=ftp_server_command_FTPPortCommand
+}
+
+
+one sig ftp_server_command_FTPPortCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPPortCommand_getName_31.paramTypes=0
+ftp_server_command_FTPPortCommand_getName_31.receiverType=ftp_server_command_FTPPortCommand
+}
+
+
+one sig ftp_server_command_FTPPortCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPPortCommand_execute_59.paramTypes=2
+ftp_server_command_FTPPortCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPortCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPortCommand_execute_59.receiverType=ftp_server_command_FTPPortCommand
+}
+
+
+one sig ftp_server_command_FTPPortCommand_executeConnectionNeededCommand_31 extends Method{}
+fact{
+#ftp_server_command_FTPPortCommand_executeConnectionNeededCommand_31.paramTypes=2
+ftp_server_command_FTPPortCommand_executeConnectionNeededCommand_31.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPortCommand_executeConnectionNeededCommand_31.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPortCommand_executeConnectionNeededCommand_31.receiverType=ftp_server_command_FTPPortCommand
+}
+
+
+one sig ftp_server_command_FTPPortCommand_init1_21 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPPortCommand_init1_21.paramTypes=1
+ftp_server_command_FTPPortCommand_init1_21.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPPwdCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPPwdCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPPwdCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPwdCommand_checkConnection_50.receiverType=ftp_server_command_FTPPwdCommand
+}
+
+
+one sig ftp_server_command_FTPPwdCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPPwdCommand_accept_36.paramTypes=1
+ftp_server_command_FTPPwdCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPwdCommand_accept_36.receiverType=ftp_server_command_FTPPwdCommand
+}
+
+
+one sig ftp_server_command_FTPPwdCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPPwdCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPPwdCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPPwdCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPPwdCommand_sendData_61.receiverType=ftp_server_command_FTPPwdCommand
+}
+
+
+one sig ftp_server_command_FTPPwdCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPPwdCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPPwdCommand_getDatabase_29.receiverType=ftp_server_command_FTPPwdCommand
+}
+
+
+one sig ftp_server_command_FTPPwdCommand_isValid_23 extends Method{}
+fact{
+#ftp_server_command_FTPPwdCommand_isValid_23.paramTypes=1
+ftp_server_command_FTPPwdCommand_isValid_23.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPwdCommand_isValid_23.receiverType=ftp_server_command_FTPPwdCommand
+}
+
+
+one sig ftp_server_command_FTPPwdCommand_executeValidCommand_25 extends Method{}
+fact{
+#ftp_server_command_FTPPwdCommand_executeValidCommand_25.paramTypes=2
+ftp_server_command_FTPPwdCommand_executeValidCommand_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPwdCommand_executeValidCommand_25.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPwdCommand_executeValidCommand_25.receiverType=ftp_server_command_FTPPwdCommand
+}
+
+
+one sig ftp_server_command_FTPPwdCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPPwdCommand_getName_31.paramTypes=0
+ftp_server_command_FTPPwdCommand_getName_31.receiverType=ftp_server_command_FTPPwdCommand
+}
+
+
+one sig ftp_server_command_FTPPwdCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPPwdCommand_execute_59.paramTypes=2
+ftp_server_command_FTPPwdCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPwdCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPwdCommand_execute_59.receiverType=ftp_server_command_FTPPwdCommand
+}
+
+
+one sig ftp_server_command_FTPPwdCommand_executeConnectionNeededCommand_28 extends Method{}
+fact{
+#ftp_server_command_FTPPwdCommand_executeConnectionNeededCommand_28.paramTypes=2
+ftp_server_command_FTPPwdCommand_executeConnectionNeededCommand_28.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPPwdCommand_executeConnectionNeededCommand_28.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPPwdCommand_executeConnectionNeededCommand_28.receiverType=ftp_server_command_FTPPwdCommand
+}
+
+
+one sig ftp_server_command_FTPPwdCommand_init1_18 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPPwdCommand_init1_18.paramTypes=1
+ftp_server_command_FTPPwdCommand_init1_18.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPQuitCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPQuitCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPQuitCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPQuitCommand_checkConnection_50.receiverType=ftp_server_command_FTPQuitCommand
+}
+
+
+one sig ftp_server_command_FTPQuitCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPQuitCommand_accept_36.paramTypes=1
+ftp_server_command_FTPQuitCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPQuitCommand_accept_36.receiverType=ftp_server_command_FTPQuitCommand
+}
+
+
+one sig ftp_server_command_FTPQuitCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPQuitCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPQuitCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPQuitCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPQuitCommand_sendData_61.receiverType=ftp_server_command_FTPQuitCommand
+}
+
+
+one sig ftp_server_command_FTPQuitCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPQuitCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPQuitCommand_getDatabase_29.receiverType=ftp_server_command_FTPQuitCommand
+}
+
+
+one sig ftp_server_command_FTPQuitCommand_isValid_23 extends Method{}
+fact{
+#ftp_server_command_FTPQuitCommand_isValid_23.paramTypes=1
+ftp_server_command_FTPQuitCommand_isValid_23.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPQuitCommand_isValid_23.receiverType=ftp_server_command_FTPQuitCommand
+}
+
+
+one sig ftp_server_command_FTPQuitCommand_executeValidCommand_28 extends Method{}
+fact{
+#ftp_server_command_FTPQuitCommand_executeValidCommand_28.paramTypes=2
+ftp_server_command_FTPQuitCommand_executeValidCommand_28.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPQuitCommand_executeValidCommand_28.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPQuitCommand_executeValidCommand_28.receiverType=ftp_server_command_FTPQuitCommand
+}
+
+
+one sig ftp_server_command_FTPQuitCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPQuitCommand_getName_31.paramTypes=0
+ftp_server_command_FTPQuitCommand_getName_31.receiverType=ftp_server_command_FTPQuitCommand
+}
+
+
+one sig ftp_server_command_FTPQuitCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPQuitCommand_execute_59.paramTypes=2
+ftp_server_command_FTPQuitCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPQuitCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPQuitCommand_execute_59.receiverType=ftp_server_command_FTPQuitCommand
+}
+
+
+one sig ftp_server_command_FTPQuitCommand_init1_18 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPQuitCommand_init1_18.paramTypes=1
+ftp_server_command_FTPQuitCommand_init1_18.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPRetrCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPRetrCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPRetrCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPRetrCommand_checkConnection_50.receiverType=ftp_server_command_FTPRetrCommand
+}
+
+
+one sig ftp_server_command_FTPRetrCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPRetrCommand_accept_36.paramTypes=1
+ftp_server_command_FTPRetrCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPRetrCommand_accept_36.receiverType=ftp_server_command_FTPRetrCommand
+}
+
+
+one sig ftp_server_command_FTPRetrCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPRetrCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPRetrCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPRetrCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPRetrCommand_sendData_61.receiverType=ftp_server_command_FTPRetrCommand
+}
+
+
+one sig ftp_server_command_FTPRetrCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPRetrCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPRetrCommand_getDatabase_29.receiverType=ftp_server_command_FTPRetrCommand
+}
+
+
+one sig ftp_server_command_FTPRetrCommand_isValid_29 extends Method{}
+fact{
+#ftp_server_command_FTPRetrCommand_isValid_29.paramTypes=1
+ftp_server_command_FTPRetrCommand_isValid_29.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPRetrCommand_isValid_29.receiverType=ftp_server_command_FTPRetrCommand
+}
+
+
+one sig ftp_server_command_FTPRetrCommand_executeValidCommand_25 extends Method{}
+fact{
+#ftp_server_command_FTPRetrCommand_executeValidCommand_25.paramTypes=2
+ftp_server_command_FTPRetrCommand_executeValidCommand_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPRetrCommand_executeValidCommand_25.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPRetrCommand_executeValidCommand_25.receiverType=ftp_server_command_FTPRetrCommand
+}
+
+
+one sig ftp_server_command_FTPRetrCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPRetrCommand_getName_31.paramTypes=0
+ftp_server_command_FTPRetrCommand_getName_31.receiverType=ftp_server_command_FTPRetrCommand
+}
+
+
+one sig ftp_server_command_FTPRetrCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPRetrCommand_execute_59.paramTypes=2
+ftp_server_command_FTPRetrCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPRetrCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPRetrCommand_execute_59.receiverType=ftp_server_command_FTPRetrCommand
+}
+
+
+one sig ftp_server_command_FTPRetrCommand_executeConnectionNeededCommand_34 extends Method{}
+fact{
+#ftp_server_command_FTPRetrCommand_executeConnectionNeededCommand_34.paramTypes=2
+ftp_server_command_FTPRetrCommand_executeConnectionNeededCommand_34.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPRetrCommand_executeConnectionNeededCommand_34.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPRetrCommand_executeConnectionNeededCommand_34.receiverType=ftp_server_command_FTPRetrCommand
+}
+
+
+one sig ftp_server_command_FTPRetrCommand_init1_24 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPRetrCommand_init1_24.paramTypes=1
+ftp_server_command_FTPRetrCommand_init1_24.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPStorCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPStorCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPStorCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPStorCommand_checkConnection_50.receiverType=ftp_server_command_FTPStorCommand
+}
+
+
+one sig ftp_server_command_FTPStorCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPStorCommand_accept_36.paramTypes=1
+ftp_server_command_FTPStorCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPStorCommand_accept_36.receiverType=ftp_server_command_FTPStorCommand
+}
+
+
+one sig ftp_server_command_FTPStorCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPStorCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPStorCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPStorCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPStorCommand_sendData_61.receiverType=ftp_server_command_FTPStorCommand
+}
+
+
+one sig ftp_server_command_FTPStorCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPStorCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPStorCommand_getDatabase_29.receiverType=ftp_server_command_FTPStorCommand
+}
+
+
+one sig ftp_server_command_FTPStorCommand_isValid_29 extends Method{}
+fact{
+#ftp_server_command_FTPStorCommand_isValid_29.paramTypes=1
+ftp_server_command_FTPStorCommand_isValid_29.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPStorCommand_isValid_29.receiverType=ftp_server_command_FTPStorCommand
+}
+
+
+one sig ftp_server_command_FTPStorCommand_executeValidCommand_25 extends Method{}
+fact{
+#ftp_server_command_FTPStorCommand_executeValidCommand_25.paramTypes=2
+ftp_server_command_FTPStorCommand_executeValidCommand_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPStorCommand_executeValidCommand_25.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPStorCommand_executeValidCommand_25.receiverType=ftp_server_command_FTPStorCommand
+}
+
+
+one sig ftp_server_command_FTPStorCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPStorCommand_getName_31.paramTypes=0
+ftp_server_command_FTPStorCommand_getName_31.receiverType=ftp_server_command_FTPStorCommand
+}
+
+
+one sig ftp_server_command_FTPStorCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPStorCommand_execute_59.paramTypes=2
+ftp_server_command_FTPStorCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPStorCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPStorCommand_execute_59.receiverType=ftp_server_command_FTPStorCommand
+}
+
+
+one sig ftp_server_command_FTPStorCommand_executeConnectionNeededCommand_34 extends Method{}
+fact{
+#ftp_server_command_FTPStorCommand_executeConnectionNeededCommand_34.paramTypes=2
+ftp_server_command_FTPStorCommand_executeConnectionNeededCommand_34.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPStorCommand_executeConnectionNeededCommand_34.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPStorCommand_executeConnectionNeededCommand_34.receiverType=ftp_server_command_FTPStorCommand
+}
+
+
+one sig ftp_server_command_FTPStorCommand_init1_24 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPStorCommand_init1_24.paramTypes=1
+ftp_server_command_FTPStorCommand_init1_24.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPSystCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPSystCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPSystCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPSystCommand_checkConnection_50.receiverType=ftp_server_command_FTPSystCommand
+}
+
+
+one sig ftp_server_command_FTPSystCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPSystCommand_accept_36.paramTypes=1
+ftp_server_command_FTPSystCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPSystCommand_accept_36.receiverType=ftp_server_command_FTPSystCommand
+}
+
+
+one sig ftp_server_command_FTPSystCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPSystCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPSystCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPSystCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPSystCommand_sendData_61.receiverType=ftp_server_command_FTPSystCommand
+}
+
+
+one sig ftp_server_command_FTPSystCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPSystCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPSystCommand_getDatabase_29.receiverType=ftp_server_command_FTPSystCommand
+}
+
+
+one sig ftp_server_command_FTPSystCommand_isValid_23 extends Method{}
+fact{
+#ftp_server_command_FTPSystCommand_isValid_23.paramTypes=1
+ftp_server_command_FTPSystCommand_isValid_23.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPSystCommand_isValid_23.receiverType=ftp_server_command_FTPSystCommand
+}
+
+
+one sig ftp_server_command_FTPSystCommand_executeValidCommand_28 extends Method{}
+fact{
+#ftp_server_command_FTPSystCommand_executeValidCommand_28.paramTypes=2
+ftp_server_command_FTPSystCommand_executeValidCommand_28.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPSystCommand_executeValidCommand_28.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPSystCommand_executeValidCommand_28.receiverType=ftp_server_command_FTPSystCommand
+}
+
+
+one sig ftp_server_command_FTPSystCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPSystCommand_getName_31.paramTypes=0
+ftp_server_command_FTPSystCommand_getName_31.receiverType=ftp_server_command_FTPSystCommand
+}
+
+
+one sig ftp_server_command_FTPSystCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPSystCommand_execute_59.paramTypes=2
+ftp_server_command_FTPSystCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPSystCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPSystCommand_execute_59.receiverType=ftp_server_command_FTPSystCommand
+}
+
+
+one sig ftp_server_command_FTPSystCommand_init1_18 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPSystCommand_init1_18.paramTypes=1
+ftp_server_command_FTPSystCommand_init1_18.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPTypeCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPTypeCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPTypeCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPTypeCommand_checkConnection_50.receiverType=ftp_server_command_FTPTypeCommand
+}
+
+
+one sig ftp_server_command_FTPTypeCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPTypeCommand_accept_36.paramTypes=1
+ftp_server_command_FTPTypeCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPTypeCommand_accept_36.receiverType=ftp_server_command_FTPTypeCommand
+}
+
+
+one sig ftp_server_command_FTPTypeCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPTypeCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPTypeCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPTypeCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPTypeCommand_sendData_61.receiverType=ftp_server_command_FTPTypeCommand
+}
+
+
+one sig ftp_server_command_FTPTypeCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPTypeCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPTypeCommand_getDatabase_29.receiverType=ftp_server_command_FTPTypeCommand
+}
+
+
+one sig ftp_server_command_FTPTypeCommand_isValid_23 extends Method{}
+fact{
+#ftp_server_command_FTPTypeCommand_isValid_23.paramTypes=1
+ftp_server_command_FTPTypeCommand_isValid_23.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPTypeCommand_isValid_23.receiverType=ftp_server_command_FTPTypeCommand
+}
+
+
+one sig ftp_server_command_FTPTypeCommand_executeValidCommand_28 extends Method{}
+fact{
+#ftp_server_command_FTPTypeCommand_executeValidCommand_28.paramTypes=2
+ftp_server_command_FTPTypeCommand_executeValidCommand_28.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPTypeCommand_executeValidCommand_28.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPTypeCommand_executeValidCommand_28.receiverType=ftp_server_command_FTPTypeCommand
+}
+
+
+one sig ftp_server_command_FTPTypeCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPTypeCommand_getName_31.paramTypes=0
+ftp_server_command_FTPTypeCommand_getName_31.receiverType=ftp_server_command_FTPTypeCommand
+}
+
+
+one sig ftp_server_command_FTPTypeCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPTypeCommand_execute_59.paramTypes=2
+ftp_server_command_FTPTypeCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPTypeCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPTypeCommand_execute_59.receiverType=ftp_server_command_FTPTypeCommand
+}
+
+
+one sig ftp_server_command_FTPTypeCommand_init1_18 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPTypeCommand_init1_18.paramTypes=1
+ftp_server_command_FTPTypeCommand_init1_18.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPUserCommand_checkConnection_50 extends Method{}
+fact{
+#ftp_server_command_FTPUserCommand_checkConnection_50.paramTypes=1
+ftp_server_command_FTPUserCommand_checkConnection_50.paramTypes[0]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPUserCommand_checkConnection_50.receiverType=ftp_server_command_FTPUserCommand
+}
+
+
+one sig ftp_server_command_FTPUserCommand_accept_36 extends Method{}
+fact{
+#ftp_server_command_FTPUserCommand_accept_36.paramTypes=1
+ftp_server_command_FTPUserCommand_accept_36.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPUserCommand_accept_36.receiverType=ftp_server_command_FTPUserCommand
+}
+
+
+one sig ftp_server_command_FTPUserCommand_sendData_61 extends Method{}
+fact{
+#ftp_server_command_FTPUserCommand_sendData_61.paramTypes=2
+ftp_server_command_FTPUserCommand_sendData_61.paramTypes[0]=java_net_Socket
+ftp_server_command_FTPUserCommand_sendData_61.paramTypes[1]=java_lang_String
+ftp_server_command_FTPUserCommand_sendData_61.receiverType=ftp_server_command_FTPUserCommand
+}
+
+
+one sig ftp_server_command_FTPUserCommand_getDatabase_29 extends Method{}
+fact{
+#ftp_server_command_FTPUserCommand_getDatabase_29.paramTypes=0
+ftp_server_command_FTPUserCommand_getDatabase_29.receiverType=ftp_server_command_FTPUserCommand
+}
+
+
+one sig ftp_server_command_FTPUserCommand_isValid_25 extends Method{}
+fact{
+#ftp_server_command_FTPUserCommand_isValid_25.paramTypes=1
+ftp_server_command_FTPUserCommand_isValid_25.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPUserCommand_isValid_25.receiverType=ftp_server_command_FTPUserCommand
+}
+
+
+one sig ftp_server_command_FTPUserCommand_executeValidCommand_30 extends Method{}
+fact{
+#ftp_server_command_FTPUserCommand_executeValidCommand_30.paramTypes=2
+ftp_server_command_FTPUserCommand_executeValidCommand_30.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPUserCommand_executeValidCommand_30.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPUserCommand_executeValidCommand_30.receiverType=ftp_server_command_FTPUserCommand
+}
+
+
+one sig ftp_server_command_FTPUserCommand_getName_31 extends Method{}
+fact{
+#ftp_server_command_FTPUserCommand_getName_31.paramTypes=0
+ftp_server_command_FTPUserCommand_getName_31.receiverType=ftp_server_command_FTPUserCommand
+}
+
+
+one sig ftp_server_command_FTPUserCommand_execute_59 extends Method{}
+fact{
+#ftp_server_command_FTPUserCommand_execute_59.paramTypes=2
+ftp_server_command_FTPUserCommand_execute_59.paramTypes[0]=ftp_shared_FTPRequest
+ftp_server_command_FTPUserCommand_execute_59.paramTypes[1]=ftp_shared_FTPClientConfiguration
+ftp_server_command_FTPUserCommand_execute_59.receiverType=ftp_server_command_FTPUserCommand
+}
+
+
+one sig ftp_server_command_FTPUserCommand_init1_20 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPUserCommand_init1_20.paramTypes=1
+ftp_server_command_FTPUserCommand_init1_20.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_util_FailedCwdException_init1_6 extends ConstructorCall{}
+fact{
+#ftp_server_util_FailedCwdException_init1_6.paramTypes=0
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_getDataSocket_151 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_getDataSocket_151.paramTypes=0
+ftp_shared_FTPClientConfiguration_getDataSocket_151.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_getId_48 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_getId_48.paramTypes=0
+ftp_shared_FTPClientConfiguration_getId_48.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_getDataServerSocket_166 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_getDataServerSocket_166.paramTypes=0
+ftp_shared_FTPClientConfiguration_getDataServerSocket_166.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_isConnected_63 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_isConnected_63.paramTypes=0
+ftp_shared_FTPClientConfiguration_isConnected_63.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_getDirectorySeparator_70 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_getDirectorySeparator_70.paramTypes=0
+ftp_shared_FTPClientConfiguration_getDirectorySeparator_70.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_goUp_135 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_goUp_135.paramTypes=0
+ftp_shared_FTPClientConfiguration_goUp_135.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_getWorkingDirectory_113 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_getWorkingDirectory_113.paramTypes=0
+ftp_shared_FTPClientConfiguration_getWorkingDirectory_113.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_getCommandSocket_99 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_getCommandSocket_99.paramTypes=0
+ftp_shared_FTPClientConfiguration_getCommandSocket_99.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_setUsername_85 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_setUsername_85.paramTypes=1
+ftp_shared_FTPClientConfiguration_setUsername_85.paramTypes[0]=java_lang_String
+ftp_shared_FTPClientConfiguration_setUsername_85.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_getUsername_77 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_getUsername_77.paramTypes=0
+ftp_shared_FTPClientConfiguration_getUsername_77.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_goDown_122 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_goDown_122.paramTypes=1
+ftp_shared_FTPClientConfiguration_goDown_122.paramTypes[0]=java_lang_String
+ftp_shared_FTPClientConfiguration_goDown_122.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_setDataServerSocket_174 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_setDataServerSocket_174.paramTypes=1
+ftp_shared_FTPClientConfiguration_setDataServerSocket_174.paramTypes[0]=java_net_ServerSocket
+ftp_shared_FTPClientConfiguration_setDataServerSocket_174.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_getBeginning_92 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_getBeginning_92.paramTypes=0
+ftp_shared_FTPClientConfiguration_getBeginning_92.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_setDataSocket_159 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_setDataSocket_159.paramTypes=1
+ftp_shared_FTPClientConfiguration_setDataSocket_159.paramTypes[0]=java_net_Socket
+ftp_shared_FTPClientConfiguration_setDataSocket_159.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_getBaseDirectory_106 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_getBaseDirectory_106.paramTypes=0
+ftp_shared_FTPClientConfiguration_getBaseDirectory_106.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_setConnected_56 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_setConnected_56.paramTypes=1
+ftp_shared_FTPClientConfiguration_setConnected_56.paramTypes[0]=Gen_Boolean
+ftp_shared_FTPClientConfiguration_setConnected_56.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_closeDataSocket_182 extends Method{}
+fact{
+#ftp_shared_FTPClientConfiguration_closeDataSocket_182.paramTypes=0
+ftp_shared_FTPClientConfiguration_closeDataSocket_182.receiverType=ftp_shared_FTPClientConfiguration
+}
+
+
+one sig ftp_shared_FTPClientConfiguration_init1_34 extends ConstructorCall{}
+fact{
+#ftp_shared_FTPClientConfiguration_init1_34.paramTypes=1
+ftp_shared_FTPClientConfiguration_init1_34.paramTypes[0]=ftp_shared_FTPServerConfiguration
+}
+
+
+one sig ftp_shared_FTPDatabase_getHostname_40 extends Method{}
+fact{
+#ftp_shared_FTPDatabase_getHostname_40.paramTypes=0
+ftp_shared_FTPDatabase_getHostname_40.receiverType=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_shared_FTPDatabase_getMessage_55 extends Method{}
+fact{
+#ftp_shared_FTPDatabase_getMessage_55.paramTypes=1
+ftp_shared_FTPDatabase_getMessage_55.paramTypes[0]=Gen_Integer
+ftp_shared_FTPDatabase_getMessage_55.receiverType=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_shared_FTPDatabase_getAccounts_47 extends Method{}
+fact{
+#ftp_shared_FTPDatabase_getAccounts_47.paramTypes=0
+ftp_shared_FTPDatabase_getAccounts_47.receiverType=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_shared_FTPDatabase_init1_28 extends ConstructorCall{}
+fact{
+#ftp_shared_FTPDatabase_init1_28.paramTypes=0
+}
+
+
+one sig ftp_shared_FTPLoggerSimpleFormatter_format_13 extends Method{}
+fact{
+#ftp_shared_FTPLoggerSimpleFormatter_format_13.paramTypes=1
+ftp_shared_FTPLoggerSimpleFormatter_format_13.paramTypes[0]=java_util_logging_LogRecord
+ftp_shared_FTPLoggerSimpleFormatter_format_13.receiverType=ftp_shared_FTPLoggerSimpleFormatter
+}
+
+
+one sig ftp_shared_FTPLoggerSimpleFormatter_init1_10 extends ConstructorCall{}
+fact{
+#ftp_shared_FTPLoggerSimpleFormatter_init1_10.paramTypes=0
+}
+
+
+one sig ftp_shared_FTPRequest_getCommand_28 extends Method{}
+fact{
+#ftp_shared_FTPRequest_getCommand_28.paramTypes=0
+ftp_shared_FTPRequest_getCommand_28.receiverType=ftp_shared_FTPRequest
+}
+
+
+one sig ftp_shared_FTPRequest_toString_47 extends Method{}
+fact{
+#ftp_shared_FTPRequest_toString_47.paramTypes=0
+ftp_shared_FTPRequest_toString_47.receiverType=ftp_shared_FTPRequest
+}
+
+
+one sig ftp_shared_FTPRequest_getLength_42 extends Method{}
+fact{
+#ftp_shared_FTPRequest_getLength_42.paramTypes=0
+ftp_shared_FTPRequest_getLength_42.receiverType=ftp_shared_FTPRequest
+}
+
+
+one sig ftp_shared_FTPRequest_getArgument_35 extends Method{}
+fact{
+#ftp_shared_FTPRequest_getArgument_35.paramTypes=0
+ftp_shared_FTPRequest_getArgument_35.receiverType=ftp_shared_FTPRequest
+}
+
+
+one sig ftp_shared_FTPRequest_init1_18 extends ConstructorCall{}
+fact{
+#ftp_shared_FTPRequest_init1_18.paramTypes=1
+ftp_shared_FTPRequest_init1_18.paramTypes[0]=java_lang_String
+}
+
+
+one sig ftp_shared_FTPServerConfiguration_setConnection_89 extends Method{}
+fact{
+#ftp_shared_FTPServerConfiguration_setConnection_89.paramTypes=1
+ftp_shared_FTPServerConfiguration_setConnection_89.paramTypes[0]=java_net_Socket
+ftp_shared_FTPServerConfiguration_setConnection_89.receiverType=ftp_shared_FTPServerConfiguration
+}
+
+
+one sig ftp_shared_FTPServerConfiguration_getAddress_39 extends Method{}
+fact{
+#ftp_shared_FTPServerConfiguration_getAddress_39.paramTypes=0
+ftp_shared_FTPServerConfiguration_getAddress_39.receiverType=ftp_shared_FTPServerConfiguration
+}
+
+
+one sig ftp_shared_FTPServerConfiguration_getConnection_81 extends Method{}
+fact{
+#ftp_shared_FTPServerConfiguration_getConnection_81.paramTypes=0
+ftp_shared_FTPServerConfiguration_getConnection_81.receiverType=ftp_shared_FTPServerConfiguration
+}
+
+
+one sig ftp_shared_FTPServerConfiguration_getBaseDirectory_74 extends Method{}
+fact{
+#ftp_shared_FTPServerConfiguration_getBaseDirectory_74.paramTypes=0
+ftp_shared_FTPServerConfiguration_getBaseDirectory_74.receiverType=ftp_shared_FTPServerConfiguration
+}
+
+
+one sig ftp_shared_FTPServerConfiguration_getDirectorySeparator_46 extends Method{}
+fact{
+#ftp_shared_FTPServerConfiguration_getDirectorySeparator_46.paramTypes=0
+ftp_shared_FTPServerConfiguration_getDirectorySeparator_46.receiverType=ftp_shared_FTPServerConfiguration
+}
+
+
+one sig ftp_shared_FTPServerConfiguration_getIdGenerator_53 extends Method{}
+fact{
+#ftp_shared_FTPServerConfiguration_getIdGenerator_53.paramTypes=0
+ftp_shared_FTPServerConfiguration_getIdGenerator_53.receiverType=ftp_shared_FTPServerConfiguration
+}
+
+
+one sig ftp_shared_FTPServerConfiguration_getServerSocket_67 extends Method{}
+fact{
+#ftp_shared_FTPServerConfiguration_getServerSocket_67.paramTypes=0
+ftp_shared_FTPServerConfiguration_getServerSocket_67.receiverType=ftp_shared_FTPServerConfiguration
+}
+
+
+one sig ftp_shared_FTPServerConfiguration_getPort_60 extends Method{}
+fact{
+#ftp_shared_FTPServerConfiguration_getPort_60.paramTypes=0
+ftp_shared_FTPServerConfiguration_getPort_60.receiverType=ftp_shared_FTPServerConfiguration
+}
+
+
+one sig ftp_shared_FTPServerConfiguration_init1_27 extends ConstructorCall{}
+fact{
+#ftp_shared_FTPServerConfiguration_init1_27.paramTypes=2
+ftp_shared_FTPServerConfiguration_init1_27.paramTypes[0]=Gen_Integer
+ftp_shared_FTPServerConfiguration_init1_27.paramTypes[1]=java_lang_String
+}
+
+
+one sig ftp_server_command_FTPPasvCommand extends Type{}
+one sig ftp_server_util_FailedCwdException extends Type{}
+one sig ftp_server_command_FTPDeleCommand extends Type{}
+one sig ftp_server_command_FTPListCommand extends Type{}
+one sig ftp_FTPMain extends Type{}
+one sig ftp_shared_FTPLoggerFactory extends Type{}
+one sig ftp_shared_FTPDatabase extends Type{}
+one sig ftp_shared_FTPServerConfiguration extends Type{}
+one sig ftp_server_command_FTPCommandManager extends Type{}
+one sig ftp_server_FTPServer extends Type{}
+one sig ftp_server_command_FTPCwdCommand extends Type{}
+one sig ftp_server_command_FTPStorCommand extends Type{}
+one sig ftp_server_command_FTPEpsvCommand extends Type{}
+one sig ftp_server_command_FTPPassCommand extends Type{}
+one sig java_lang_String extends Type{}
+one sig ftp_client_FTPRequestHandler extends Type{}
+one sig ftp_server_command_FTPQuitCommand extends Type{}
+one sig ftp_server_command_FTPUserCommand extends Type{}
+one sig ftp_shared_FTPLoggerSimpleFormatter extends Type{}
+one sig java_net_Socket extends Type{}
+one sig ftp_server_command_FTPTypeCommand extends Type{}
+one sig ftp_shared_FTPClientConfiguration extends Type{}
+one sig ftp_server_command_FTPSystCommand extends Type{}
+one sig ftp_shared_FTPRequest extends Type{}
+one sig ftp_server_command_FTPPwdCommand extends Type{}
+one sig ftp_server_command_FTPCdupCommand extends Type{}
+one sig ftp_server_command_FTPCommand extends Type{}
+one sig java_net_ServerSocket extends Type{}
+one sig ftp_server_command_FTPNotImplementedCommand extends Type{}
+one sig ftp_server_command_FTPEprtCommand extends Type{}
+one sig java_util_logging_LogRecord extends Type{}
+one sig ftp_server_command_FTPNlstCommand extends Type{}
+one sig ftp_server_command_FTPRetrCommand extends Type{}
+one sig ftp_server_command_FTPPortCommand extends Type{}

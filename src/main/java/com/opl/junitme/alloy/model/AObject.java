@@ -20,6 +20,8 @@ public class AObject extends AModel {
 	 */
 	private AType type;
 	
+	private AConstructorCall constructor;
+	
 	/**
 	 * The method that the object contains.
 	 */
@@ -42,6 +44,10 @@ public class AObject extends AModel {
 		switch(specification){
 		case TYPE:
 			this.type = (AType) AlloyInstanceManager.getCurrentAlloyInstance().addElement(element);
+			break;
+		case CONSTRUCTOR_CALL:
+			final AConstructorCall constructor = (AConstructorCall) AlloyInstanceManager.getCurrentAlloyInstance().addElement(element);
+			this.constructor = constructor;
 			break;
 		case METHODS:
 			AMethod method = (AMethod) AlloyInstanceManager.getCurrentAlloyInstance().addElement(element);
@@ -74,6 +80,14 @@ public class AObject extends AModel {
 	 */
 	public void setType(final AType type) {
 		this.type = type;
+	}
+	
+	public AConstructorCall getConstructorCall() {
+		return constructor;
+	}
+	
+	public void setConstructorCall(AConstructorCall constructor) {
+		this.constructor = constructor;
 	}
 
 	/**

@@ -3,24 +3,28 @@ package com.opl.junitme.alloy.generator;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
+
+import com.opl.junitme.constants.Constants;
+import com.opl.junitme.spoon.processors.AlloyProcessor;
 
 import spoon.Launcher;
 import spoon.processing.ProcessingManager;
 import spoon.reflect.factory.Factory;
 import spoon.support.QueueProcessingManager;
-import spoon.support.compiler.FileSystemFolder;
-
-import com.opl.junitme.constants.Constants;
-import com.opl.junitme.spoon.processors.AlloyProcessor;
 
 public class AlloyGenerator {
 
 	public static void genAlloy(final String pathSourceProgram, final int instanceCount) throws Exception {
 		
 		Launcher spoon = new Launcher();
-		spoon.addInputResource(new FileSystemFolder(new File(pathSourceProgram)));
-		spoon.run();
+		final List<String> arguments = new LinkedList<String>();
+		arguments.add("-i");
+		arguments.add(pathSourceProgram);
+		//spoon.addInputResource(new FileSystemFolder(new File(pathSourceProgram)));
+		spoon.run(arguments.toArray(new String[arguments.size()]));
 		Factory factory = spoon.getFactory();
 		ProcessingManager p = new QueueProcessingManager(factory);
 		AlloyProcessor proc = new AlloyProcessor();
@@ -47,7 +51,7 @@ public class AlloyGenerator {
 			scanner.useDelimiter("\n");
 
 			while (scanner.hasNext()) {
-				buff += scanner.next();
+				buff += scanner.next()+"\n";
 			}
 			scanner.close();
 

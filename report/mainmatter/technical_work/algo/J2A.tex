@@ -1,33 +1,45 @@
 \subsection{Java to Alloy}
 \subsubsection{Generating Alloy source code}
 \paragraph{Base model}
-The base model is a meta-model, It is the base of the generated java to Alloy program.
-It is composed of four parts: Types, methods, methods constraints and methods arguments.
+The base model is the Alloy meta-model. It is the base of the generated java to Alloy program. The model is composed of five major signatures: types, objects, contructor calls, methods and methods calls.
 
 \lstset{language=Alloy}
 
-\paragraph{Types} All types have a super-type: \textit{Type}. In addition, every object has a type and a constructor.
+\paragraph{Types} A type is an abstract signature representing the type of an object. All the types of the program to be analysed will extend this signature.\\
+
 \begin{lstlisting}
 abstract sig Type{
 }
+\end{lstlisting}
 
+\paragraph{Objects} An object represents an instance in the Java program. Every object has a type and a signature.\\
+
+\begin{lstlisting}
 sig Object{
     type : Type,
     constructor : ConstructorCall
 }
 \end{lstlisting}
 
-\paragraph{Methods} A very important thing in order  to simulate an execution trace, is to have the trace of execution with successive methods calls and not only instances of objects of simple type declaration. Successive methods calls can be presented in a linked list, so later on, simply by getting the head of the list we can browse a gernerated instance and we will have an access to method calls. The following Alloy code represents how we have represented methods in Alloy model.
+\paragraph{Methods, constructors \& calls} A very important thing in order  to simulate an execution trace, is to have the trace of execution with successive methods calls and not only instances of objects of simple type declaration. Successive methods calls can be presented in a linked list, so later on, simply by getting the head of the list we can browse a gernerated instance and we will have an access to method calls. The following Alloy code represents how we have represented methods in Alloy model.\\
 
 \begin{lstlisting}
-sig ConstructorCall{
-    paramTypes: seq Type
+abstract sig Method {
+    paramTypes : seq Type,
+    receiverType : Type
 }
 
 abstract sig Call{
 }
 
+one sig Begin extends CallWithNext{
+}
+
 one sig End extends Call{
+}
+
+sig ConstructorCall{
+    paramTypes: seq Type
 }
 
 abstract sig CallWithNext extends Call{
@@ -39,18 +51,10 @@ sig MethodCall extends CallWithNext{
     method : Method,
     params : seq Object
 }
-
-one sig Begin extends CallWithNext{
-}
-
-abstract sig Method {
-    paramTypes : seq Type,
-    receiverType : Type
-}
 \end{lstlisting}
 
 \paragraph{Constraints}
-Methods in every instance generated later on should respect numerous constraints, such like a method not being able to call itself. The following Alloy code represents the constraints used in the Alloy model. 
+Methods in every instance generated later on should respect numerous constraints, such like a method not being able to call itself. The following Alloy code represents the constraints used in the Alloy model.\\
 
 \begin{lstlisting}
 ------ Method Constraints-------
@@ -85,7 +89,9 @@ fact{
     all mc:MethodCall | mc.receiver.type=mc.method.receiverType
 }
 \end{lstlisting}
-\paragraph{Arguments} Primitve types has been included in the base model. All other used types in a given program are generated at runtime. 
+
+\paragraph{Arguments} Primitve types has been included in the base model. All other used types in a given program are generated at runtime.\\
+
 \begin{lstlisting}
 ------- Param Constraints ------
 
@@ -113,8 +119,8 @@ one sig Gen_Short extends Type{}
 \end{lstlisting}
 
 \paragraph{Generating Alloy Code}
-To generate Alloy instances for an existing Java program we used Spoon(\ref{subsec:impl}). Spoon uses AST (Abstract syntax tree)\cite{ast} to browse the structure of a specified program. With informations collected in the AST, we are able to generate the code of Alloy program corresponding to the initial Java program. The generated code is then grafted to the base model.
-Result is a complet Alloy model inside the file FinalGen.als\\
+To generate Alloy instances for an existing Java program we used Spoon(\ref{subsec:impl}). Spoon uses an AST (Abstract syntax tree)\cite{ast} to browse the structure of a specified program. With informations collected in the AST, we are able to generate the code of Alloy program corresponding to the initial Java program. The generated code is then grafted to the base model.
+The result is a complete Alloy model inside the file \textit{FinalGen.als}.\\
 
 \begin{algorithm}[H]
 \SetAlgoLined
@@ -123,7 +129,7 @@ Result is a complet Alloy model inside the file FinalGen.als\\
  \ForEach{class $c$}{
 		Modify the name of class from $package.class$ to $package\_class$\;
 		Add $ClassName$ as a type to Alloy file\;
- 		\ForEach {method $m$ in $c$}{
+ 		\ForEach {public method $m$ in $c$}{
  	Create method name as: $className\_MethodName\_NumberOflineInJavaFile$\;
 	Add a $Sig$ extending $Method\{\}$ representing the method $m$ into Alloy model\;	 		
 	Add to Alloy model number of method parameters as a $fact$\;
@@ -132,7 +138,7 @@ Result is a complet Alloy model inside the file FinalGen.als\\
 		}
 		Add to Alloy model the type of $receiver$ as a $fact$\;
  	  }
- 	  \ForEach{Constructor $ct$ in $c$}{
+ 	  \ForEach{public constructor $ct$ in $c$}{
 		 Add a $Sig$ extending $ConstructorCall\{\}$ representing the constructor $ct$ in	to Alloy model\;
 		 Add to Alloy model number of constructor parameters as a $fact$\;
 		 \ForEach{Parameter $p$ in $ct$}{
@@ -143,15 +149,30 @@ Result is a complet Alloy model inside the file FinalGen.als\\
 \caption{How to transfer Java code to Alloy model}
 \end{algorithm}
 \bigskip
-An example of the results output:
+\bigskip
+
+An example of the results output for a method:\\
+
 \begin{lstlisting}
 sig package_myClass extends Type{}
 sig package_myClass_method_1 extends Method{}
 fact{
-  #package_myClass_method_1.params=3
-  package_myClass_method_1.param[0].type=typeArg1
-  package_myClass_method_1.param[1].type=typeArg2
-  package_myClass_method_1.param[2].type=typeArg3
+  #package_myClass_method_1.paramTypes=3
+  package_myClass_method_1.paramTypes[0]=typeArg1
+  package_myClass_method_1.paramTypes[1]=typeArg2
+  package_myClass_method_1.paramTypes[2]=typeArg3
   package_myClass_method_1.receiverType=X
+}
+\end{lstlisting}
+
+and for a constructor:\\
+
+\begin{lstlisting}
+one sig ftp_client_FTPRequestHandler_1_36 extends ConstructorCall{}
+fact{
+  #ftp_client_FTPRequestHandler_init1_36.paramTypes=3
+  ftp_client_FTPRequestHandler_init1_36.paramTypes[0]=ftp_shared_FTPDatabase
+  ftp_client_FTPRequestHandler_init1_36.paramTypes[1]=ftp_shared_FTPServerConfiguration
+  ftp_client_FTPRequestHandler_init1_36.paramTypes[2]=ftp_server_command_FTPCommandManager
 }
 \end{lstlisting}

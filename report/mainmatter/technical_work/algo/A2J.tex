@@ -1,17 +1,35 @@
 \subsection{Alloy to Java}
 \subsubsection{Generating Java unit tests}
+
+\paragraph{Translate Alloy signatures to Java classes}
+To make Alloy solutions browsing easier, we translated every signature in the Alloy model into Java classes. For example, for the signature $Method$, we have the following class: \\
+
+TODO
+
+%\begin{tabular}{|c|c|}
+%\hline
+%\begin{lstlisting}
+%abstract sig Method {
+%    paramTypes : seq Type,
+%    receiverType : Type
+%}
+%\end{lstlisting}
+%&
+%\includegraphics{method.png} \\
+%\hline
+%\end{tabular}
+
 \paragraph{Modelizing Alloy instances in Java}
 Using Alloy Analyzer we execute the generated Alloy source code. Alloy Analyzer generates all possible instances.
 Each instance is a solution, we can obtain a solution using A4Solution object. A4Solution object has a method \textit{satisfiable} to check if the solution is valid and a method \textit{next} to go the next possible solution.
 
-\paragraph{Creating Java object}
-Each alloy instance is represented by a Java object called: \textit{AlloyInstance}.
-
 \paragraph{Generating tests}
-In order To generate the code of Java unit tests we used CodeModel, which allows us to generate Java classes in a simple way.\\
+In order to generate the code of Java unit tests, we used CodeModel, which allows us to generate Java classes in a simple way.\\
 We browse Java modelized solution and generate the variables used to call methods and the variables passed as methods parameters.\\
 For each solution we use the execution trace.
-Firstly, we initalize all the necessary types for the receiver method, then all the veriables that will be used in parameters. \\~\\
+Firstly, we initalize all the necessary types for the receiver method, then all the veriables that will be used in parameters. \\
+If an exception occurs during the execution of the tests, its stack trace is logged in a file, and the number of different exceptions thrown is written in the file.\\
+
 \begin{algorithm}[H]
 \SetAlgoLined
 \KwData{Alloy instance modelized in Java}
@@ -23,13 +41,18 @@ Firstly, we initalize all the necessary types for the receiver method, then all 
  		 Add $org.Junit.Test$ annotation \;
 		 Add $Throw Exception$ to method signature\;
 		 Create a $try catch$ block\;
-		 Inside a $try$ block:\{\\
+		 Inside the $try$ block:\{\\
 	     - Declare all variables\\
 	     - Call constructors\\
 	     - Add method calls with the necessary parameters\\
 		 \}\;
+		 Inside the $catch$ block:\{\\
+	     - Log the exception in a file\\
+	     - Rethrow it\\
+		 \}\;
  	}}
-\caption{How to transfer an Alloy instance modelized in Java to Java unit test}
+~\\
+\caption{How to translate an Alloy instance modelized in Java into Java unit tests}
 \end{algorithm}
 \bigskip
 \bigskip
@@ -50,7 +73,7 @@ An example of the results output:
 \begin{lstlisting}[language=java]
 @BeforeClass
 public static void initExceptionBuilder() throws IOException {
-	ExceptionLogger.initLogFile();
+    ExceptionLogger.initLogFile();
 }
 \end{lstlisting}
 
@@ -60,8 +83,8 @@ public void test0() throws Exception {
   try {
   			
   }catch(java.lang.Exception x){
-  	ExceptionLogger.logException(x);
-  	throw(x);
+    ExceptionLogger.logException(x);
+    throw(x);
   }
 }
 \end{lstlisting}
@@ -69,7 +92,7 @@ public void test0() throws Exception {
 \begin{lstlisting}[language=java]
 @AfterClass
 public static void closeExceptionBuilder() throws IOException {
-   ExceptionLogger.closeLogFile();
+    ExceptionLogger.closeLogFile();
 }
 \end{lstlisting}
 

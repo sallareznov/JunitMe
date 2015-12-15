@@ -1,23 +1,41 @@
 \subsection{Alloy to Java}
 \subsubsection{Generating Java unit tests}
-
 \paragraph{Translate Alloy signatures to Java classes}
-To make Alloy solutions browsing easier, we translated every signature in the Alloy model into Java classes. For example, for the signature $Method$, we have the following class: \\
+To make Alloy solutions browsing easier, we translated every signature in the Alloy model into Java classes. For example, for the signatures $Method$ and $MethodCall$, we have the following classes:
 
-TODO
 
-%\begin{tabular}{|c|c|}
-%\hline
-%\begin{lstlisting}
-%abstract sig Method {
-%    paramTypes : seq Type,
-%    receiverType : Type
-%}
-%\end{lstlisting}
-%&
-%\includegraphics{method.png} \\
-%\hline
-%\end{tabular}
+
+\newsavebox{\firstlisting}
+\begin{lrbox}{\firstlisting}% Store first listing
+\begin{lstlisting}
+abstract sig Method {
+    paramTypes : seq Type,
+    receiverType : Type
+}
+
+\end{lstlisting}
+\end{lrbox}
+\newsavebox{\secondlisting}
+\begin{lrbox}{\secondlisting}% Store second listing
+\begin{lstlisting}
+sig MethodCall extends CallWithNext{
+    receiver : Object,
+    method : Method,
+    params : seq Object
+}
+\end{lstlisting}
+\end{lrbox}
+
+\begin{figure}[h]
+{\usebox{\firstlisting}} \hfill%
+{\usebox{\secondlisting}}
+\end{figure}
+
+\includegraphics{method.png}
+\hfill
+\includegraphics{methodcall.png}
+
+
 
 \paragraph{Modelizing Alloy instances in Java}
 Using Alloy Analyzer we execute the generated Alloy source code. Alloy Analyzer generates all possible instances.

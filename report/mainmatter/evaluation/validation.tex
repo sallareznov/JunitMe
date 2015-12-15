@@ -1,8 +1,10 @@
 \section{Validation}
 \label{sec:Validation}
-	Our project has been tested on *****, a Java open-source project ***** (GitHub link). We fixed the number of generated tests to 1****, and measured the code coverage by varying the alloy run count.
+	Our project has been tested on *****, a Java open-source project ***** (GitHub link). We fixed the number of generated tests to 10000, and measured the code coverage by varying the alloy run count. The tool used to calculate the coverage is EclEmma.\cite{eclemma}\\
 	
+\begin{figure}[!h]
 \begin{center}
+ADD LOC \\~\\
 \begin{tabular}{|c|c|}
 
  \hline
@@ -16,7 +18,9 @@
 
  \hline
 \end{tabular}
-\end{center}		
+\caption{Code coverage of generated tests with the Alloy run count fixed to 8}
+\end{center}
+\end{figure}
 
 The increase of the Alloy scope improved the tests code coverage. The results we obtained are represented in the following plot :\\
 
@@ -32,7 +36,7 @@ The increase of the Alloy scope improved the tests code coverage. The results we
     xmin=0, xmax=12,
     ymin=0, ymax=100,
     ytick={0,20,40,60,80,100},
-    xtick={0,2,4,6,8,10,12},
+    xtick={0,2,4,6,8,10},
     ymajorgrids=true
 ]
  

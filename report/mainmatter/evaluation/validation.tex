@@ -1,0 +1,31 @@
+\section{Validation}
+\label{sec:Validation}
+	Our project has been tested on *****, a Java open-source project ***** (GitHub link). We fixed the number of generated tests to 1****, and measured the code coverage by varying the alloy run count. The increase of the Alloy scope improved the tests code coverage. The results we obtained are represented in the following plot :\\
+
+\pgfplotsset{width=\textwidth,compat=1.9}
+
+{\setlength{\parindent}{0cm}
+\begin{tikzpicture}
+\begin{axis}[
+	axis lines=left,
+    title={Code coverage of generated tests},
+    xlabel={Alloy run count},
+    ylabel={Code coverage (\%)},
+    xmin=0, xmax=12,
+    ymin=0, ymax=100,
+    ytick={0,20,40,60,80,100},
+    xtick={0,2,4,6,8,10,12},
+    ymajorgrids=true
+]
+ 
+\addplot[
+    color=red,
+    mark=circle,
+    ]
+    coordinates {
+    (0,0)(1, 10)(2, 20)(3, 30)(4, 40)(5, 50)(6, 60)(7, 70)(8, 80)(9, 90)
+    };
+ 
+\end{axis}
+\end{tikzpicture}
+}

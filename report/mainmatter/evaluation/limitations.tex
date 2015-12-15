@@ -1,9 +1,9 @@
 \section{Limitations}
-	Despite its efficiency and reliability, our tool has couple limitations, mainly in the area of types that Alloy model covers.
+	Despite its efficiency and reliability, our tool has some limitations, mainly in the area of types that Alloy model covers.
 	
 	At the time of writing, JunitMe2.0 cannot instantiate generic, parameterized types and arrays in the tests.
 	Interfaces and abstract types also cannot be instanciated in the tests, so the tool just skips them during the construction of the Alloy model.
 	
 	Fortunately, these functionalities can be implemented easily in the future, the design of the code being generic enough to allow so.
 	
-	Furthermore, for some Java open source projects, Alloy could reach its limit and \textit{Translation capacity exceeded} exception would happen even for a relatively small number of test and a small Alloy run count. 
+	Furthermore, for some Java open source projects, Alloy could reach its limit and a \textit{Translation capacity exceeded} exception would happen even for a relatively small number of tests and a small Alloy run count.

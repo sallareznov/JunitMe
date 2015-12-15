@@ -47,7 +47,7 @@ public class AlloyToJavaParser {
 	 * @param createInstance
 	 *            if the java instance of the solution has to be created.
 	 * @param max
-	 *            the maximum instance to iterate. Specifiy -1 if you want to
+	 *            the maximum instance to iterate. Specify -1 if you want to
 	 *            iterate through all of them.
 	 * @throws Err
 	 */
@@ -65,11 +65,11 @@ public class AlloyToJavaParser {
 
 		int count = 0;
 		while (solution.satisfiable() && (count < max || max == -1)) {
-//			if (count % 1000 == 0) {
-				System.out.println("Creating instance n_" + (++count) + (max != -1 ? " of " + max : ""));
-//			}
+			if (count % 100 == 0) {
+				System.out.println("Creating instance n_" + (count) + (max != -1 ? " of " + max : ""));
+			}
 			
-//			count++;
+			count++;
 
 			// Prepare the string buffer.
 			StringBuilder sb = new StringBuilder();

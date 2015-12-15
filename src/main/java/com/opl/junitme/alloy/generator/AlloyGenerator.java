@@ -23,6 +23,7 @@ public class AlloyGenerator {
 		final List<String> arguments = new LinkedList<String>();
 		arguments.add("-i");
 		arguments.add(pathSourceProgram);
+		arguments.add("-x");
 		//spoon.addInputResource(new FileSystemFolder(new File(pathSourceProgram)));
 		spoon.run(arguments.toArray(new String[arguments.size()]));
 		Factory factory = spoon.getFactory();

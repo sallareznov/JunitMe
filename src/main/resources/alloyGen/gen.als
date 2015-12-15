@@ -5,6 +5,18 @@ ftp_FTPMain_usage_45.receiverType=ftp_FTPMain
 }
 
 
+one sig ftp_FTPMain_init1_38 extends ConstructorCall{}
+fact{
+#ftp_FTPMain_init1_38.paramTypes=0
+}
+
+
+one sig ftp_FTPMasterTester_init1_19 extends ConstructorCall{}
+fact{
+#ftp_FTPMasterTester_init1_19.paramTypes=0
+}
+
+
 one sig ftp_client_FTPRequestHandler_sendData_61 extends Method{}
 fact{
 #ftp_client_FTPRequestHandler_sendData_61.paramTypes=2
@@ -91,6 +103,36 @@ ftp_server_FTPServer_init1_28.paramTypes[2]=ftp_shared_FTPDatabase
 }
 
 
+one sig ftp_server_command_FTPAcceptAndValidCommandTest_testAccept_77 extends Method{}
+fact{
+#ftp_server_command_FTPAcceptAndValidCommandTest_testAccept_77.paramTypes=0
+ftp_server_command_FTPAcceptAndValidCommandTest_testAccept_77.receiverType=ftp_server_command_FTPAcceptAndValidCommandTest
+}
+
+
+one sig ftp_server_command_FTPAcceptAndValidCommandTest_data_50 extends Method{}
+fact{
+#ftp_server_command_FTPAcceptAndValidCommandTest_data_50.paramTypes=0
+ftp_server_command_FTPAcceptAndValidCommandTest_data_50.receiverType=ftp_server_command_FTPAcceptAndValidCommandTest
+}
+
+
+one sig ftp_server_command_FTPAcceptAndValidCommandTest_testIsValid_87 extends Method{}
+fact{
+#ftp_server_command_FTPAcceptAndValidCommandTest_testIsValid_87.paramTypes=0
+ftp_server_command_FTPAcceptAndValidCommandTest_testIsValid_87.receiverType=ftp_server_command_FTPAcceptAndValidCommandTest
+}
+
+
+one sig ftp_server_command_FTPAcceptAndValidCommandTest_init1_42 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPAcceptAndValidCommandTest_init1_42.paramTypes=3
+ftp_server_command_FTPAcceptAndValidCommandTest_init1_42.paramTypes[0]=ftp_server_command_FTPCommand
+ftp_server_command_FTPAcceptAndValidCommandTest_init1_42.paramTypes[1]=java_lang_String
+ftp_server_command_FTPAcceptAndValidCommandTest_init1_42.paramTypes[2]=Gen_Integer
+}
+
+
 one sig ftp_server_command_FTPCdupCommand_checkConnection_50 extends Method{}
 fact{
 #ftp_server_command_FTPCdupCommand_checkConnection_50.paramTypes=1
@@ -169,6 +211,26 @@ one sig ftp_server_command_FTPCdupCommand_init1_19 extends ConstructorCall{}
 fact{
 #ftp_server_command_FTPCdupCommand_init1_19.paramTypes=1
 ftp_server_command_FTPCdupCommand_init1_19.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPCdupCommandTest_testExecute_40 extends Method{}
+fact{
+#ftp_server_command_FTPCdupCommandTest_testExecute_40.paramTypes=0
+ftp_server_command_FTPCdupCommandTest_testExecute_40.receiverType=ftp_server_command_FTPCdupCommandTest
+}
+
+
+one sig ftp_server_command_FTPCdupCommandTest_setUp_34 extends Method{}
+fact{
+#ftp_server_command_FTPCdupCommandTest_setUp_34.paramTypes=0
+ftp_server_command_FTPCdupCommandTest_setUp_34.receiverType=ftp_server_command_FTPCdupCommandTest
+}
+
+
+one sig ftp_server_command_FTPCdupCommandTest_init1_26 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPCdupCommandTest_init1_26.paramTypes=0
 }
 
 
@@ -354,6 +416,26 @@ one sig ftp_server_command_FTPDeleCommand_init1_21 extends ConstructorCall{}
 fact{
 #ftp_server_command_FTPDeleCommand_init1_21.paramTypes=1
 ftp_server_command_FTPDeleCommand_init1_21.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPDeleCommandTest_testExecute_49 extends Method{}
+fact{
+#ftp_server_command_FTPDeleCommandTest_testExecute_49.paramTypes=0
+ftp_server_command_FTPDeleCommandTest_testExecute_49.receiverType=ftp_server_command_FTPDeleCommandTest
+}
+
+
+one sig ftp_server_command_FTPDeleCommandTest_setUp_35 extends Method{}
+fact{
+#ftp_server_command_FTPDeleCommandTest_setUp_35.paramTypes=0
+ftp_server_command_FTPDeleCommandTest_setUp_35.receiverType=ftp_server_command_FTPDeleCommandTest
+}
+
+
+one sig ftp_server_command_FTPDeleCommandTest_init1_27 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPDeleCommandTest_init1_27.paramTypes=0
 }
 
 
@@ -801,6 +883,26 @@ ftp_server_command_FTPPassCommand_init1_19.paramTypes[0]=ftp_shared_FTPDatabase
 }
 
 
+one sig ftp_server_command_FTPPassCommandTest_testExecute_42 extends Method{}
+fact{
+#ftp_server_command_FTPPassCommandTest_testExecute_42.paramTypes=0
+ftp_server_command_FTPPassCommandTest_testExecute_42.receiverType=ftp_server_command_FTPPassCommandTest
+}
+
+
+one sig ftp_server_command_FTPPassCommandTest_setUp_36 extends Method{}
+fact{
+#ftp_server_command_FTPPassCommandTest_setUp_36.paramTypes=0
+ftp_server_command_FTPPassCommandTest_setUp_36.receiverType=ftp_server_command_FTPPassCommandTest
+}
+
+
+one sig ftp_server_command_FTPPassCommandTest_init1_28 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPPassCommandTest_init1_28.paramTypes=0
+}
+
+
 one sig ftp_server_command_FTPPasvCommand_checkConnection_50 extends Method{}
 fact{
 #ftp_server_command_FTPPasvCommand_checkConnection_50.paramTypes=1
@@ -1044,6 +1146,26 @@ ftp_server_command_FTPPwdCommand_init1_18.paramTypes[0]=ftp_shared_FTPDatabase
 }
 
 
+one sig ftp_server_command_FTPPwdCommandTest_testExecute_38 extends Method{}
+fact{
+#ftp_server_command_FTPPwdCommandTest_testExecute_38.paramTypes=0
+ftp_server_command_FTPPwdCommandTest_testExecute_38.receiverType=ftp_server_command_FTPPwdCommandTest
+}
+
+
+one sig ftp_server_command_FTPPwdCommandTest_setUp_32 extends Method{}
+fact{
+#ftp_server_command_FTPPwdCommandTest_setUp_32.paramTypes=0
+ftp_server_command_FTPPwdCommandTest_setUp_32.receiverType=ftp_server_command_FTPPwdCommandTest
+}
+
+
+one sig ftp_server_command_FTPPwdCommandTest_init1_26 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPPwdCommandTest_init1_26.paramTypes=0
+}
+
+
 one sig ftp_server_command_FTPQuitCommand_checkConnection_50 extends Method{}
 fact{
 #ftp_server_command_FTPQuitCommand_checkConnection_50.paramTypes=1
@@ -1113,6 +1235,26 @@ one sig ftp_server_command_FTPQuitCommand_init1_18 extends ConstructorCall{}
 fact{
 #ftp_server_command_FTPQuitCommand_init1_18.paramTypes=1
 ftp_server_command_FTPQuitCommand_init1_18.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPQuitCommandTest_testExecute_38 extends Method{}
+fact{
+#ftp_server_command_FTPQuitCommandTest_testExecute_38.paramTypes=0
+ftp_server_command_FTPQuitCommandTest_testExecute_38.receiverType=ftp_server_command_FTPQuitCommandTest
+}
+
+
+one sig ftp_server_command_FTPQuitCommandTest_setUp_32 extends Method{}
+fact{
+#ftp_server_command_FTPQuitCommandTest_setUp_32.paramTypes=0
+ftp_server_command_FTPQuitCommandTest_setUp_32.receiverType=ftp_server_command_FTPQuitCommandTest
+}
+
+
+one sig ftp_server_command_FTPQuitCommandTest_init1_26 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPQuitCommandTest_init1_26.paramTypes=0
 }
 
 
@@ -1350,6 +1492,26 @@ ftp_server_command_FTPSystCommand_init1_18.paramTypes[0]=ftp_shared_FTPDatabase
 }
 
 
+one sig ftp_server_command_FTPSystCommandTest_testExecute_38 extends Method{}
+fact{
+#ftp_server_command_FTPSystCommandTest_testExecute_38.paramTypes=0
+ftp_server_command_FTPSystCommandTest_testExecute_38.receiverType=ftp_server_command_FTPSystCommandTest
+}
+
+
+one sig ftp_server_command_FTPSystCommandTest_setUp_32 extends Method{}
+fact{
+#ftp_server_command_FTPSystCommandTest_setUp_32.paramTypes=0
+ftp_server_command_FTPSystCommandTest_setUp_32.receiverType=ftp_server_command_FTPSystCommandTest
+}
+
+
+one sig ftp_server_command_FTPSystCommandTest_init1_26 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPSystCommandTest_init1_26.paramTypes=0
+}
+
+
 one sig ftp_server_command_FTPTypeCommand_checkConnection_50 extends Method{}
 fact{
 #ftp_server_command_FTPTypeCommand_checkConnection_50.paramTypes=1
@@ -1422,6 +1584,26 @@ ftp_server_command_FTPTypeCommand_init1_18.paramTypes[0]=ftp_shared_FTPDatabase
 }
 
 
+one sig ftp_server_command_FTPTypeCommandTest_testExecute_38 extends Method{}
+fact{
+#ftp_server_command_FTPTypeCommandTest_testExecute_38.paramTypes=0
+ftp_server_command_FTPTypeCommandTest_testExecute_38.receiverType=ftp_server_command_FTPTypeCommandTest
+}
+
+
+one sig ftp_server_command_FTPTypeCommandTest_setUp_32 extends Method{}
+fact{
+#ftp_server_command_FTPTypeCommandTest_setUp_32.paramTypes=0
+ftp_server_command_FTPTypeCommandTest_setUp_32.receiverType=ftp_server_command_FTPTypeCommandTest
+}
+
+
+one sig ftp_server_command_FTPTypeCommandTest_init1_26 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPTypeCommandTest_init1_26.paramTypes=0
+}
+
+
 one sig ftp_server_command_FTPUserCommand_checkConnection_50 extends Method{}
 fact{
 #ftp_server_command_FTPUserCommand_checkConnection_50.paramTypes=1
@@ -1491,6 +1673,26 @@ one sig ftp_server_command_FTPUserCommand_init1_20 extends ConstructorCall{}
 fact{
 #ftp_server_command_FTPUserCommand_init1_20.paramTypes=1
 ftp_server_command_FTPUserCommand_init1_20.paramTypes[0]=ftp_shared_FTPDatabase
+}
+
+
+one sig ftp_server_command_FTPUserCommandTest_testExecute_38 extends Method{}
+fact{
+#ftp_server_command_FTPUserCommandTest_testExecute_38.paramTypes=0
+ftp_server_command_FTPUserCommandTest_testExecute_38.receiverType=ftp_server_command_FTPUserCommandTest
+}
+
+
+one sig ftp_server_command_FTPUserCommandTest_setUp_32 extends Method{}
+fact{
+#ftp_server_command_FTPUserCommandTest_setUp_32.paramTypes=0
+ftp_server_command_FTPUserCommandTest_setUp_32.receiverType=ftp_server_command_FTPUserCommandTest
+}
+
+
+one sig ftp_server_command_FTPUserCommandTest_init1_26 extends ConstructorCall{}
+fact{
+#ftp_server_command_FTPUserCommandTest_init1_26.paramTypes=0
 }
 
 
@@ -1777,6 +1979,7 @@ one sig ftp_server_command_FTPPasvCommand extends Type{}
 one sig ftp_server_util_FailedCwdException extends Type{}
 one sig ftp_server_command_FTPDeleCommand extends Type{}
 one sig ftp_server_command_FTPListCommand extends Type{}
+one sig ftp_server_command_FTPCdupCommandTest extends Type{}
 one sig ftp_FTPMain extends Type{}
 one sig ftp_shared_FTPLoggerFactory extends Type{}
 one sig ftp_shared_FTPDatabase extends Type{}
@@ -1786,13 +1989,18 @@ one sig ftp_server_FTPServer extends Type{}
 one sig ftp_server_command_FTPCwdCommand extends Type{}
 one sig ftp_server_command_FTPStorCommand extends Type{}
 one sig ftp_server_command_FTPEpsvCommand extends Type{}
+one sig ftp_server_command_FTPUserCommandTest extends Type{}
 one sig ftp_server_command_FTPPassCommand extends Type{}
+one sig ftp_server_command_FTPAcceptAndValidCommandTest extends Type{}
 one sig java_lang_String extends Type{}
 one sig ftp_client_FTPRequestHandler extends Type{}
 one sig ftp_server_command_FTPQuitCommand extends Type{}
 one sig ftp_server_command_FTPUserCommand extends Type{}
 one sig ftp_shared_FTPLoggerSimpleFormatter extends Type{}
 one sig java_net_Socket extends Type{}
+one sig ftp_server_command_FTPDeleCommandTest extends Type{}
+one sig ftp_server_command_FTPPwdCommandTest extends Type{}
+one sig ftp_server_command_FTPSystCommandTest extends Type{}
 one sig ftp_server_command_FTPTypeCommand extends Type{}
 one sig ftp_shared_FTPClientConfiguration extends Type{}
 one sig ftp_server_command_FTPSystCommand extends Type{}
@@ -1801,9 +2009,13 @@ one sig ftp_server_command_FTPPwdCommand extends Type{}
 one sig ftp_server_command_FTPCdupCommand extends Type{}
 one sig ftp_server_command_FTPCommand extends Type{}
 one sig java_net_ServerSocket extends Type{}
+one sig ftp_FTPMasterTester extends Type{}
 one sig ftp_server_command_FTPNotImplementedCommand extends Type{}
+one sig ftp_server_command_FTPQuitCommandTest extends Type{}
 one sig ftp_server_command_FTPEprtCommand extends Type{}
+one sig ftp_server_command_FTPTypeCommandTest extends Type{}
 one sig java_util_logging_LogRecord extends Type{}
+one sig ftp_server_command_FTPPassCommandTest extends Type{}
 one sig ftp_server_command_FTPNlstCommand extends Type{}
 one sig ftp_server_command_FTPRetrCommand extends Type{}
 one sig ftp_server_command_FTPPortCommand extends Type{}
